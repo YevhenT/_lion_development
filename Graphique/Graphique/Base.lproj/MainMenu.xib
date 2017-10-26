@@ -685,16 +685,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="175"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <splitView misplaced="YES" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J5X-0H-XoS" userLabel="horizontalSplitView">
-                                        <rect key="frame" x="0.0" y="4" width="480" height="171"/>
+                                    <splitView dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J5X-0H-XoS" userLabel="horizontalSplitView">
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <customView fixedFrame="YES" id="Vip-NP-Vtd">
-                                                <rect key="frame" x="0.0" y="0.0" width="242" height="171"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="242" height="175"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </customView>
                                             <customView fixedFrame="YES" id="KSZ-MN-B7u">
-                                                <rect key="frame" x="243" y="0.0" width="237" height="171"/>
+                                                <rect key="frame" x="243" y="0.0" width="237" height="175"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </customView>
                                         </subviews>
