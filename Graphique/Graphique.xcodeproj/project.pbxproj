@@ -115,6 +115,8 @@
 		6247B7C01FA24A5F00CCFFCA /* Graphique */ = {
 			isa = PBXGroup;
 			children = (
+				6247B7EF1FA27E8900CCFFCA /* Models */,
+				6247B7EE1FA27E7A00CCFFCA /* Views */,
 				6247B7CC1FA24A6000CCFFCA /* AppDelegate.h */,
 				6247B7CD1FA24A6000CCFFCA /* AppDelegate.m */,
 				6247B7CF1FA24A6000CCFFCA /* MainMenu.xib */,
@@ -152,6 +154,20 @@
 				6247B7E11FA24A6000CCFFCA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6247B7EE1FA27E7A00CCFFCA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		6247B7EF1FA27E8900CCFFCA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

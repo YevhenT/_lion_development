@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5023"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -670,10 +670,62 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <splitView dividerStyle="thin" translatesAutoresizingMaskIntoConstraints="NO" id="EZT-Ba-5Bb">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <customView id="scK-dz-90C" userLabel="Up_part">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="175"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <splitView misplaced="YES" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J5X-0H-XoS">
+                                        <rect key="frame" x="0.0" y="4" width="480" height="171"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <customView fixedFrame="YES" id="Vip-NP-Vtd">
+                                                <rect key="frame" x="0.0" y="0.0" width="242" height="171"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </customView>
+                                            <customView fixedFrame="YES" id="KSZ-MN-B7u">
+                                                <rect key="frame" x="243" y="0.0" width="237" height="171"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </customView>
+                                        </subviews>
+                                        <holdingPriorities>
+                                            <real value="250"/>
+                                            <real value="250"/>
+                                        </holdingPriorities>
+                                    </splitView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="J5X-0H-XoS" firstAttribute="leading" secondItem="scK-dz-90C" secondAttribute="leading" id="7UK-1N-1MN"/>
+                                    <constraint firstAttribute="trailing" secondItem="J5X-0H-XoS" secondAttribute="trailing" id="TXQ-NK-z0z"/>
+                                    <constraint firstItem="J5X-0H-XoS" firstAttribute="top" secondItem="scK-dz-90C" secondAttribute="top" id="YWi-2y-qYF"/>
+                                    <constraint firstAttribute="bottom" secondItem="J5X-0H-XoS" secondAttribute="bottom" id="cIq-Ly-dLE"/>
+                                </constraints>
+                            </customView>
+                            <customView fixedFrame="YES" id="lML-yF-RrM" userLabel="Down_part">
+                                <rect key="frame" x="0.0" y="176" width="480" height="184"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </customView>
+                        </subviews>
+                        <holdingPriorities>
+                            <real value="250"/>
+                            <real value="250"/>
+                        </holdingPriorities>
+                    </splitView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="EZT-Ba-5Bb" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="3LT-QF-7iD"/>
+                    <constraint firstAttribute="bottom" secondItem="EZT-Ba-5Bb" secondAttribute="bottom" id="6NF-7D-dHA"/>
+                    <constraint firstItem="EZT-Ba-5Bb" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="7Ox-R0-tRq"/>
+                    <constraint firstAttribute="trailing" secondItem="EZT-Ba-5Bb" secondAttribute="trailing" id="FqS-Kp-zDa"/>
+                </constraints>
             </view>
         </window>
     </objects>
