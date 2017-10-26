@@ -15,13 +15,6 @@
     // Insert code here to initialize your application
 }
 
-- (void)applicationDidBecomeActive:(NSNotification *)notification{
-    NSLog(@"applicationDidBecomeActive");
-}
 
-- (void)applicationDidResignActive:(NSNotification *)notification{
-    NSLog(@"applicationDidResignActive");
-
-}
 
 @end
