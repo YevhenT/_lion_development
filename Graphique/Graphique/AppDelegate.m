@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "EquationEntryViewController.h"
+
+@interface AppDelegate()
+
+@end
 
 @implementation AppDelegate
 

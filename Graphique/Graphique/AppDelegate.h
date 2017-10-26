@@ -8,8 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class EquationEntryViewController;
+
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (nonatomic, weak) IBOutlet NSSplitView *horizontalSplitView;
+@property (nonatomic, weak) IBOutlet NSSplitView *verticalSplitView;
+@property (nonatomic, strong) IBOutlet EquationEntryViewController *equationEntryVC;
 
 @end

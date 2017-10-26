@@ -18,6 +18,8 @@
 		6247B7DB1FA24A6000CCFFCA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6247B7BA1FA24A5F00CCFFCA /* Cocoa.framework */; };
 		6247B7E31FA24A6000CCFFCA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6247B7E11FA24A6000CCFFCA /* InfoPlist.strings */; };
 		6247B7E51FA24A6000CCFFCA /* GraphiqueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6247B7E41FA24A6000CCFFCA /* GraphiqueTests.m */; };
+		6247B7F31FA27F7700CCFFCA /* EquationEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6247B7F11FA27F7700CCFFCA /* EquationEntryViewController.m */; };
+		6247B7F41FA27F7700CCFFCA /* EquationEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6247B7F21FA27F7700CCFFCA /* EquationEntryViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,9 @@
 		6247B7E01FA24A6000CCFFCA /* GraphiqueTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GraphiqueTests-Info.plist"; sourceTree = "<group>"; };
 		6247B7E21FA24A6000CCFFCA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6247B7E41FA24A6000CCFFCA /* GraphiqueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphiqueTests.m; sourceTree = "<group>"; };
+		6247B7F01FA27F7700CCFFCA /* EquationEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EquationEntryViewController.h; path = Views/EquationEntryViewController.h; sourceTree = "<group>"; };
+		6247B7F11FA27F7700CCFFCA /* EquationEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EquationEntryViewController.m; path = Views/EquationEntryViewController.m; sourceTree = "<group>"; };
+		6247B7F21FA27F7700CCFFCA /* EquationEntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EquationEntryViewController.xib; path = Views/EquationEntryViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +164,9 @@
 		6247B7EE1FA27E7A00CCFFCA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6247B7F01FA27F7700CCFFCA /* EquationEntryViewController.h */,
+				6247B7F11FA27F7700CCFFCA /* EquationEntryViewController.m */,
+				6247B7F21FA27F7700CCFFCA /* EquationEntryViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -250,6 +258,7 @@
 				6247B7D31FA24A6000CCFFCA /* Images.xcassets in Resources */,
 				6247B7CB1FA24A6000CCFFCA /* Credits.rtf in Resources */,
 				6247B7D11FA24A6000CCFFCA /* MainMenu.xib in Resources */,
+				6247B7F41FA27F7700CCFFCA /* EquationEntryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6247B7F31FA27F7700CCFFCA /* EquationEntryViewController.m in Sources */,
 				6247B7CE1FA24A6000CCFFCA /* AppDelegate.m in Sources */,
 				6247B7C71FA24A5F00CCFFCA /* main.m in Sources */,
 			);
