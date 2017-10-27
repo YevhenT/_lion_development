@@ -8,6 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface RecentlyUsedEquationViewController : NSViewController
+@class GroupItem;
+
+@interface RecentlyUsedEquationViewController : NSViewController <NSOutlineViewDataSource>
+
+@property (nonatomic, strong) GroupItem *rootItem;
 
 @end
