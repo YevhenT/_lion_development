@@ -7,9 +7,15 @@
 //
 
 #import "AppDelegate.h"
+
 #import "EquationEntryViewController.h"
+#import "GraphTableViewController.h"
+#import "RecentlyUsedEquationViewController.h"
 
 @interface AppDelegate()
+
+
+
 
 @end
 
@@ -17,7 +23,22 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    self.equationEntryVC = [[EquationEntryViewController alloc]
+                            initWithNibName: @"EquationEntryViewController"
+                            bundle:nil];
+    self.graphTableVC = [[GraphTableViewController alloc]
+                         initWithNibName: @"GraphTableViewController"
+                         bundle: nil];
+    self.recentlyUsedEquationVC = [[RecentlyUsedEquationViewController alloc]
+                                   initWithNibName: @"RecentlyUsedEquationViewController"
+                                   bundle: nil];
+    
+    [self.verticalSplitView replaceSubview: [self.verticalSplitView subviews][1]
+                                        with:self.equationEntryVC.view];
+    [self.verticalSplitView replaceSubview: [self.verticalSplitView subviews][0]
+                                      with:self.recentlyUsedEquationVC.view];
+    [self.horizontalSplitView replaceSubview:[self.horizontalSplitView subviews][1]
+                                        with:self.graphTableVC.view];
 }
 
 

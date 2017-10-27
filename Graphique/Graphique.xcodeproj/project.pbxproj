@@ -20,6 +20,10 @@
 		6247B7E51FA24A6000CCFFCA /* GraphiqueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6247B7E41FA24A6000CCFFCA /* GraphiqueTests.m */; };
 		6247B7F31FA27F7700CCFFCA /* EquationEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6247B7F11FA27F7700CCFFCA /* EquationEntryViewController.m */; };
 		6247B7F41FA27F7700CCFFCA /* EquationEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6247B7F21FA27F7700CCFFCA /* EquationEntryViewController.xib */; };
+		62794DFD1FA39BDA003E441E /* GraphTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794DFB1FA39BDA003E441E /* GraphTableViewController.m */; };
+		62794DFE1FA39BDA003E441E /* GraphTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62794DFC1FA39BDA003E441E /* GraphTableViewController.xib */; };
+		62794E021FA3A774003E441E /* RecentlyUsedEquationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E001FA3A774003E441E /* RecentlyUsedEquationViewController.m */; };
+		62794E031FA3A774003E441E /* RecentlyUsedEquationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62794E011FA3A774003E441E /* RecentlyUsedEquationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,12 @@
 		6247B7F01FA27F7700CCFFCA /* EquationEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EquationEntryViewController.h; path = Views/EquationEntryViewController.h; sourceTree = "<group>"; };
 		6247B7F11FA27F7700CCFFCA /* EquationEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EquationEntryViewController.m; path = Views/EquationEntryViewController.m; sourceTree = "<group>"; };
 		6247B7F21FA27F7700CCFFCA /* EquationEntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EquationEntryViewController.xib; path = Views/EquationEntryViewController.xib; sourceTree = "<group>"; };
+		62794DFA1FA39BDA003E441E /* GraphTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphTableViewController.h; path = Views/GraphTableViewController.h; sourceTree = "<group>"; };
+		62794DFB1FA39BDA003E441E /* GraphTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphTableViewController.m; path = Views/GraphTableViewController.m; sourceTree = "<group>"; };
+		62794DFC1FA39BDA003E441E /* GraphTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphTableViewController.xib; path = Views/GraphTableViewController.xib; sourceTree = "<group>"; };
+		62794DFF1FA3A774003E441E /* RecentlyUsedEquationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecentlyUsedEquationViewController.h; path = Views/RecentlyUsedEquationViewController.h; sourceTree = "<group>"; };
+		62794E001FA3A774003E441E /* RecentlyUsedEquationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecentlyUsedEquationViewController.m; path = Views/RecentlyUsedEquationViewController.m; sourceTree = "<group>"; };
+		62794E011FA3A774003E441E /* RecentlyUsedEquationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecentlyUsedEquationViewController.xib; path = Views/RecentlyUsedEquationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +177,12 @@
 				6247B7F01FA27F7700CCFFCA /* EquationEntryViewController.h */,
 				6247B7F11FA27F7700CCFFCA /* EquationEntryViewController.m */,
 				6247B7F21FA27F7700CCFFCA /* EquationEntryViewController.xib */,
+				62794DFA1FA39BDA003E441E /* GraphTableViewController.h */,
+				62794DFB1FA39BDA003E441E /* GraphTableViewController.m */,
+				62794DFC1FA39BDA003E441E /* GraphTableViewController.xib */,
+				62794DFF1FA3A774003E441E /* RecentlyUsedEquationViewController.h */,
+				62794E001FA3A774003E441E /* RecentlyUsedEquationViewController.m */,
+				62794E011FA3A774003E441E /* RecentlyUsedEquationViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -254,10 +270,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62794DFE1FA39BDA003E441E /* GraphTableViewController.xib in Resources */,
 				6247B7C51FA24A5F00CCFFCA /* InfoPlist.strings in Resources */,
 				6247B7D31FA24A6000CCFFCA /* Images.xcassets in Resources */,
 				6247B7CB1FA24A6000CCFFCA /* Credits.rtf in Resources */,
 				6247B7D11FA24A6000CCFFCA /* MainMenu.xib in Resources */,
+				62794E031FA3A774003E441E /* RecentlyUsedEquationViewController.xib in Resources */,
 				6247B7F41FA27F7700CCFFCA /* EquationEntryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +297,8 @@
 			files = (
 				6247B7F31FA27F7700CCFFCA /* EquationEntryViewController.m in Sources */,
 				6247B7CE1FA24A6000CCFFCA /* AppDelegate.m in Sources */,
+				62794E021FA3A774003E441E /* RecentlyUsedEquationViewController.m in Sources */,
+				62794DFD1FA39BDA003E441E /* GraphTableViewController.m in Sources */,
 				6247B7C71FA24A5F00CCFFCA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +512,7 @@
 				6247B7EA1FA24A6000CCFFCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6247B7EB1FA24A6000CCFFCA /* Build configuration list for PBXNativeTarget "GraphiqueTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +521,7 @@
 				6247B7ED1FA24A6000CCFFCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
