@@ -23,12 +23,13 @@
     if (self) {
         self.rootItem = [[GroupItem alloc] init];
         
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 2; i++) {
             GroupItem *temp = [[GroupItem alloc] init];
-            temp.name = [NSString stringWithFormat:@"Group %i", i + 1];
+            temp.name = [NSString stringWithFormat:@"GroupItem %i", i + 1];
             
             for (int j = 0; j < 5; j++) {
                 EquationItem *item = [[EquationItem alloc] init];
+            
                 [temp addChild:item];
             }
             [self.rootItem addChild:temp];

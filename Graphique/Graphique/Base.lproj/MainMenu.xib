@@ -718,6 +718,20 @@
                     </splitView>
                 </subviews>
             </view>
+            <toolbar key="toolbar" implicitIdentifier="BA51A78F-E075-4A34-999F-C6D68A4BC0DF" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="JSF-U5-wU0">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="J7a-jv-FqY"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="8GS-FH-6rm"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="SyB-X0-lBj"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="BuE-cg-rCB"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="bXn-Lg-qKp"/>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="J7a-jv-FqY"/>
+                    <toolbarItem reference="8GS-FH-6rm"/>
+                    <toolbarItem reference="SyB-X0-lBj"/>
+                </defaultToolbarItems>
+            </toolbar>
         </window>
     </objects>
 </document>
