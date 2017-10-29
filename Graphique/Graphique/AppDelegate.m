@@ -12,7 +12,7 @@
 #import "GraphTableViewController.h"
 #import "RecentlyUsedEquationViewController.h"
 
-@interface AppDelegate()
+@interface AppDelegate() <NSSplitViewDelegate>
 
 
 
@@ -32,6 +32,7 @@
     self.recentlyUsedEquationVC = [[RecentlyUsedEquationViewController alloc]
                                    initWithNibName: @"RecentlyUsedEquationViewController"
                                    bundle: nil];
+
     
     [self.verticalSplitView replaceSubview: [self.verticalSplitView subviews][1]
                                         with:self.equationEntryVC.view];
@@ -39,6 +40,9 @@
                                       with:self.recentlyUsedEquationVC.view];
     [self.horizontalSplitView replaceSubview:[self.horizontalSplitView subviews][1]
                                         with:self.graphTableVC.view];
+    
+    
+
 }
 
 
