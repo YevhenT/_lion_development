@@ -11,7 +11,8 @@
 #import "EquationItem.h"
 #import "GroupItem.h"
 
-#define EQUATION_ENTRY_MIN_WIDTH 215.0
+#define EQUATION_ENTRY_MIN_WIDTH 175.0
+#define PREFERRED_RECENT_EQUATIONS_MIN_WIDTH 150.0
 //#define EQUATION_ENTRY_MAX_WIDTH 240.0
 
 @interface RecentlyUsedEquationViewController ()
@@ -113,4 +114,32 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 //    CGFloat max = splitView.frame.origin.x + EQUATION_ENTRY_MAX_WIDTH;
 //    return max;
 //}
+
+- (BOOL) splitView:(NSSplitView *)splitView shouldAdjustSizeOfSubview:(NSView *)view{
+    
+    CGFloat windowSize = splitView.bounds.size.width;
+    NSView *recentlyUsedView = [splitView.subviews objectAtIndex:0];
+    NSView *equationEntryView = [splitView.subviews objectAtIndex:1];
+
+    if ( windowSize <= (EQUATION_ENTRY_MIN_WIDTH + PREFERRED_RECENT_EQUATIONS_MIN_WIDTH)) {
+        if (view == equationEntryView) {
+            [view setFrameSize: CGSizeMake(EQUATION_ENTRY_MIN_WIDTH, view.frame.size.height)];
+            return NO;
+        }
+        if (view == recentlyUsedView) {
+            return YES;
+        }
+    }
+    else {
+        if (view == equationEntryView) {
+            return YES;
+        }
+        if (view == recentlyUsedView) {
+            [view setFrameSize: CGSizeMake(PREFERRED_RECENT_EQUATIONS_MIN_WIDTH, view.frame.size.height)];
+            return NO;
+        }
+    }
+
+    return NO;
+}
 @end

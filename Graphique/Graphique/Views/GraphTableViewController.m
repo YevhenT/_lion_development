@@ -8,7 +8,7 @@
 
 #import "GraphTableViewController.h"
 
-@interface GraphTableViewController ()
+@interface GraphTableViewController () 
 
 @end
 
