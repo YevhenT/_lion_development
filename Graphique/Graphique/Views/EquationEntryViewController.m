@@ -23,4 +23,10 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark Actions
+- (IBAction)equationEntered:(id)sender{
+    PR_CMD
+}
+
 @end

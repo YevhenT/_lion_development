@@ -24,8 +24,8 @@
 		62794DFE1FA39BDA003E441E /* GraphTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62794DFC1FA39BDA003E441E /* GraphTableViewController.xib */; };
 		62794E021FA3A774003E441E /* RecentlyUsedEquationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E001FA3A774003E441E /* RecentlyUsedEquationViewController.m */; };
 		62794E031FA3A774003E441E /* RecentlyUsedEquationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62794E011FA3A774003E441E /* RecentlyUsedEquationViewController.xib */; };
-		62794E061FA3AB43003E441E /* EquationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E051FA3AB43003E441E /* EquationItem.m */; };
 		62794E091FA3AC17003E441E /* GroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E081FA3AC17003E441E /* GroupItem.m */; };
+		62794E4F1FA67421003E441E /* EquationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E4E1FA67421003E441E /* EquationItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,10 +67,10 @@
 		62794DFF1FA3A774003E441E /* RecentlyUsedEquationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecentlyUsedEquationViewController.h; path = Views/RecentlyUsedEquationViewController.h; sourceTree = "<group>"; };
 		62794E001FA3A774003E441E /* RecentlyUsedEquationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecentlyUsedEquationViewController.m; path = Views/RecentlyUsedEquationViewController.m; sourceTree = "<group>"; };
 		62794E011FA3A774003E441E /* RecentlyUsedEquationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecentlyUsedEquationViewController.xib; path = Views/RecentlyUsedEquationViewController.xib; sourceTree = "<group>"; };
-		62794E041FA3AB43003E441E /* EquationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EquationItem.h; path = Models/EquationItem.h; sourceTree = "<group>"; };
-		62794E051FA3AB43003E441E /* EquationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EquationItem.m; path = Models/EquationItem.m; sourceTree = "<group>"; };
 		62794E071FA3AC17003E441E /* GroupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupItem.h; path = Models/GroupItem.h; sourceTree = "<group>"; };
 		62794E081FA3AC17003E441E /* GroupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupItem.m; path = Models/GroupItem.m; sourceTree = "<group>"; };
+		62794E4D1FA67421003E441E /* EquationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EquationItem.h; path = Models/EquationItem.h; sourceTree = "<group>"; };
+		62794E4E1FA67421003E441E /* EquationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EquationItem.m; path = Models/EquationItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +196,8 @@
 		6247B7EF1FA27E8900CCFFCA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				62794E041FA3AB43003E441E /* EquationItem.h */,
-				62794E051FA3AB43003E441E /* EquationItem.m */,
+				62794E4D1FA67421003E441E /* EquationItem.h */,
+				62794E4E1FA67421003E441E /* EquationItem.m */,
 				62794E071FA3AC17003E441E /* GroupItem.h */,
 				62794E081FA3AC17003E441E /* GroupItem.m */,
 			);
@@ -307,10 +307,10 @@
 			files = (
 				6247B7F31FA27F7700CCFFCA /* EquationEntryViewController.m in Sources */,
 				6247B7CE1FA24A6000CCFFCA /* AppDelegate.m in Sources */,
-				62794E061FA3AB43003E441E /* EquationItem.m in Sources */,
 				62794E021FA3A774003E441E /* RecentlyUsedEquationViewController.m in Sources */,
 				62794E091FA3AC17003E441E /* GroupItem.m in Sources */,
 				62794DFD1FA39BDA003E441E /* GraphTableViewController.m in Sources */,
+				62794E4F1FA67421003E441E /* EquationItem.m in Sources */,
 				6247B7C71FA24A5F00CCFFCA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
