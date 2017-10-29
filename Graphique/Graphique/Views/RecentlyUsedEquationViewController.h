@@ -10,7 +10,7 @@
 
 @class GroupItem;
 
-@interface RecentlyUsedEquationViewController : NSViewController <NSOutlineViewDataSource>
+@interface RecentlyUsedEquationViewController : NSViewController <NSOutlineViewDataSource, NSSplitViewDelegate>
 
 @property (nonatomic, strong) GroupItem *rootItem;
 

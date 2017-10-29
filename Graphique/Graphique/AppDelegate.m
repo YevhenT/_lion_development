@@ -32,7 +32,7 @@
     self.recentlyUsedEquationVC = [[RecentlyUsedEquationViewController alloc]
                                    initWithNibName: @"RecentlyUsedEquationViewController"
                                    bundle: nil];
-
+    self.verticalSplitView.delegate = self.recentlyUsedEquationVC;
     
     [self.verticalSplitView replaceSubview: [self.verticalSplitView subviews][1]
                                         with:self.equationEntryVC.view];

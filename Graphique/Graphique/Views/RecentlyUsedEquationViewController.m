@@ -11,6 +11,8 @@
 #import "EquationItem.h"
 #import "GroupItem.h"
 
+#define EQUATION_ENTRY_MIN_WIDTH 215.0
+//#define EQUATION_ENTRY_MAX_WIDTH 240.0
 
 @interface RecentlyUsedEquationViewController ()
 
@@ -100,5 +102,15 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
     return objectValue;
 }
 
+#pragma mark -
+#pragma mark <NSSplitViewDelegate>
+- (CGFloat)splitView:(NSSplitView *)splitView constrainMaxCoordinate:(CGFloat)proposedMaximumPosition ofSubviewAt:(NSInteger)dividerIndex{
+    CGFloat max = splitView.frame.size.width - EQUATION_ENTRY_MIN_WIDTH;
+    return max;
+}
 
+//- (CGFloat)splitView:(NSSplitView *)splitView constrainMinCoordinate:(CGFloat)proposedMinimumPosition ofSubviewAt:(NSInteger)dividerIndex{
+//    CGFloat max = splitView.frame.origin.x + EQUATION_ENTRY_MAX_WIDTH;
+//    return max;
+//}
 @end
