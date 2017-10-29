@@ -121,7 +121,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
     NSView *recentlyUsedView = [splitView.subviews objectAtIndex:0];
     NSView *equationEntryView = [splitView.subviews objectAtIndex:1];
 
-    if ( windowSize <= (EQUATION_ENTRY_MIN_WIDTH + PREFERRED_RECENT_EQUATIONS_MIN_WIDTH)) {
+    if ( windowSize <= (EQUATION_ENTRY_MIN_WIDTH + PREFERRED_RECENT_EQUATIONS_MIN_WIDTH +10)) {
         if (view == equationEntryView) {
             [view setFrameSize: CGSizeMake(EQUATION_ENTRY_MIN_WIDTH, view.frame.size.height)];
             return NO;

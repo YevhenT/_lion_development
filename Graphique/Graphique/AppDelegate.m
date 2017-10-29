@@ -34,6 +34,7 @@
                                    bundle: nil];
     
     self.verticalSplitView.delegate = self.recentlyUsedEquationVC;
+    self.horizontalSplitView.delegate = self.graphTableVC;
     
     [self.verticalSplitView replaceSubview: [self.verticalSplitView subviews][1]
                                         with:self.equationEntryVC.view];

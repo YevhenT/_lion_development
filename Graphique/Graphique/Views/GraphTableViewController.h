@@ -8,6 +8,5 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface GraphTableViewController : NSViewController
-
+@interface GraphTableViewController : NSViewController <NSSplitViewDelegate>
 @end
