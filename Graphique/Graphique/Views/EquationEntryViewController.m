@@ -27,13 +27,33 @@
     return self;
 }
 
+- (void) alertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo{
+    ;
+}
+
 #pragma mark -
 #pragma mark Actions
 - (IBAction)equationEntered:(id)sender{
     
     AppDelegate *delegate = NSApplication.sharedApplication.delegate;
     Equation *equation = [[Equation alloc] initWithString:[self.textField stringValue]];
-    [delegate.graphTableVC draw:equation];
+    
+    NSError *error = nil;
+    if ([equation validate:&error] == NO) {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"OK"];
+        [alert setMessageText:@"Something went wrong"];
+        [alert setInformativeText:[NSString stringWithFormat:@"Error %ld: %@.", [error code], [error localizedDescription]]];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:delegate.window
+                          modalDelegate:self
+                         didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:)
+                            contextInfo:nil];
+    }
+    else {
+        [delegate.graphTableVC draw:equation];
+    }
+    
 
 }
 

@@ -60,10 +60,6 @@ NSString * kPathToAWK = @"/usr/bin/awk";
     NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     float value = [string floatValue];
 
-//    NSError *error = [NSError new];
-//    if ([self validate:&error]){
-//        return 0;
-//    }
     return value;
 }
 
