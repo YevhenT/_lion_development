@@ -12,5 +12,5 @@
 
 - (id) initWithString: (NSString*) string;
 - (CGFloat) evaluateForX: (CGFloat) x;
-
+- (BOOL)validate: (NSError**)error;
 @end

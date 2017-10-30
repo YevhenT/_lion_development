@@ -60,10 +60,10 @@ NSString * kPathToAWK = @"/usr/bin/awk";
     NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     float value = [string floatValue];
 
-    NSError *error = [NSError new];
-    if ([self validate:&error]){
-        return 0;
-    }
+//    NSError *error = [NSError new];
+//    if ([self validate:&error]){
+//        return 0;
+//    }
     return value;
 }
 
@@ -73,7 +73,7 @@ NSString * kPathToAWK = @"/usr/bin/awk";
     unichar previous = 0;
     NSString *allowCharacters = @"x()+-*/^0123456789. ";
     NSCharacterSet *cs = [NSCharacterSet characterSetWithCharactersInString:allowCharacters];
-    NSCharacterSet *operators = [NSCharacterSet characterSetWithCharactersInString:@"x()+-*/^"];
+    NSCharacterSet *operators = [NSCharacterSet characterSetWithCharactersInString:@"x+-*/^"];
     
 
     for (int i = 0; i < self.text.length; i++) {
