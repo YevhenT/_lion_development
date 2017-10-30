@@ -16,6 +16,8 @@ NSString * kPathToAWK = @"/usr/bin/awk";
 
 @property (nonatomic, strong) NSString *text;
 
+- (BOOL) produceError:(NSError**)error withCode:(NSInteger)code andMessage:(NSString*)message;
+
 @end
 @implementation Equation
 
@@ -57,7 +59,61 @@ NSString * kPathToAWK = @"/usr/bin/awk";
     NSData *data = [file readDataToEndOfFile];
     NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     float value = [string floatValue];
-    
+
+    NSError *error = [NSError new];
+    if ([self validate:&error]){
+        return 0;
+    }
     return value;
+}
+
+- (BOOL)validate: (NSError**)error{
+    NSUInteger open = 0;
+    NSUInteger close = 0;
+    unichar previous = 0;
+    NSString *allowCharacters = @"x()+-*/^0123456789. ";
+    NSCharacterSet *cs = [NSCharacterSet characterSetWithCharactersInString:allowCharacters];
+    NSCharacterSet *operators = [NSCharacterSet characterSetWithCharactersInString:@"x()+-*/^"];
+    
+
+    for (int i = 0; i < self.text.length; i++) {
+        unichar c = [self.text characterAtIndex: i];
+        if (![cs characterIsMember:c]) {
+            return [self produceError:error withCode:100 andMessage:
+                    [NSString stringWithFormat:@"Invalid character typed. Only '%@' are allowed", allowCharacters]];
+        }
+        else
+            if (c == '(') open++;
+        else
+            if (c == ')') close++;
+        
+        if ([operators characterIsMember:c] && [operators characterIsMember:previous]) {
+            return [self produceError:error withCode:101 andMessage:
+                    [NSString stringWithFormat:@"Consecutive operators are not allowed"]];
+        }
+        if (c != ' ') {
+            previous = c;
+        }
+    }
+    
+    if (open < close) {
+        return [self produceError:error withCode:102 andMessage:
+                [NSString stringWithFormat:@"Too many closed parentheses"]];
+    }
+    else if (open > close) {
+        return [self produceError:error withCode:103 andMessage:
+                [NSString stringWithFormat:@"Too many open parentheses"]];
+    }
+    
+    return YES;
+}
+
+- (BOOL) produceError:(NSError *__autoreleasing *)error withCode:(NSInteger)code andMessage:(NSString *)message{
+    if (error != NULL) {
+        NSMutableDictionary *errorDetail = @{NSLocalizedDescriptionKey: message}.mutableCopy;
+        *error = [NSError errorWithDomain:@"Graphique" code:code userInfo:errorDetail];
+    }
+    
+    return NO;
 }
 @end
