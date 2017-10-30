@@ -14,6 +14,7 @@
 
 @interface EquationEntryViewController ()
 @property (nonatomic, weak) IBOutlet NSTextField *textField;
+@property (nonatomic, weak) IBOutlet NSTextField *feedback;
 @end
 
 @implementation EquationEntryViewController
@@ -29,6 +30,17 @@
 
 - (void) alertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo{
     ;
+}
+
+- (void) controlTextDidChange:(NSNotification *)notification{
+    Equation *equation = [[Equation alloc] initWithString:[self.textField stringValue]];
+    NSError *error = nil;
+    if ([equation validate:&error] == NO) {
+        self.feedback.stringValue = [NSString stringWithFormat:@"Error %ld : %@", [error code], [error localizedDescription]];
+    }
+    else {
+        self.feedback.stringValue = @"";
+    }
 }
 
 #pragma mark -

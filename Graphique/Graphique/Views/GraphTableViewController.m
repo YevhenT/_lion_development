@@ -8,7 +8,7 @@
 
 #import "GraphTableViewController.h"
 
-#define PREFERRED_RECENT_AND_EQUATIONS_MIN_WIDTH 150.0
+#define PREFERRED_RECENT_AND_EQUATIONS_MIN_HEIGHT 150.0
 #define GRAPH_MIN_HEIGHT 100.0
 
 
@@ -47,7 +47,7 @@
 
 - (CGFloat)splitView:(NSSplitView *)splitView
 constrainMinCoordinate:(CGFloat)proposedMinimumPosition ofSubviewAt:(NSInteger)dividerIndex{
-    return PREFERRED_RECENT_AND_EQUATIONS_MIN_WIDTH;
+    return PREFERRED_RECENT_AND_EQUATIONS_MIN_HEIGHT;
 }
 - (CGFloat)splitView:(NSSplitView *)splitView constrainMaxCoordinate:(CGFloat)proposedMaximumPosition ofSubviewAt:(NSInteger)dividerIndex{
     CGFloat max = splitView.frame.size.height - GRAPH_MIN_HEIGHT;

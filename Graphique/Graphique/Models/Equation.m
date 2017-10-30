@@ -69,14 +69,14 @@ NSString * kPathToAWK = @"/usr/bin/awk";
     unichar previous = 0;
     NSString *allowCharacters = @"x()+-*/^0123456789. ";
     NSCharacterSet *cs = [NSCharacterSet characterSetWithCharactersInString:allowCharacters];
-    NSCharacterSet *operators = [NSCharacterSet characterSetWithCharactersInString:@"x+-*/^"];
+    NSCharacterSet *operators = [NSCharacterSet characterSetWithCharactersInString:@"+-*/^"];
     
 
     for (int i = 0; i < self.text.length; i++) {
         unichar c = [self.text characterAtIndex: i];
         if (![cs characterIsMember:c]) {
             return [self produceError:error withCode:100 andMessage:
-                    [NSString stringWithFormat:@"Invalid character typed. Only '%@' are allowed", allowCharacters]];
+                    [NSString stringWithFormat:@"Invalid character typed. Only '%@' are allowed.", allowCharacters]];
         }
         else
             if (c == '(') open++;
@@ -85,7 +85,7 @@ NSString * kPathToAWK = @"/usr/bin/awk";
         
         if ([operators characterIsMember:c] && [operators characterIsMember:previous]) {
             return [self produceError:error withCode:101 andMessage:
-                    [NSString stringWithFormat:@"Consecutive operators are not allowed"]];
+                    [NSString stringWithFormat:@"Consecutive operators are not allowed."]];
         }
         if (c != ' ') {
             previous = c;
@@ -94,11 +94,11 @@ NSString * kPathToAWK = @"/usr/bin/awk";
     
     if (open < close) {
         return [self produceError:error withCode:102 andMessage:
-                [NSString stringWithFormat:@"Too many closed parentheses"]];
+                [NSString stringWithFormat:@"Too many closed parentheses."]];
     }
     else if (open > close) {
         return [self produceError:error withCode:103 andMessage:
-                [NSString stringWithFormat:@"Too many open parentheses"]];
+                [NSString stringWithFormat:@"Too many open parentheses."]];
     }
     
     return YES;
