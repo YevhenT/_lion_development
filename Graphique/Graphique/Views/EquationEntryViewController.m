@@ -8,8 +8,12 @@
 
 #import "EquationEntryViewController.h"
 
-@interface EquationEntryViewController ()
+#import "Equation.h"
+#import "AppDelegate.h"
+#import "GraphTableViewController.h"
 
+@interface EquationEntryViewController ()
+@property (nonatomic, weak) IBOutlet NSTextField *textField;
 @end
 
 @implementation EquationEntryViewController
@@ -26,7 +30,11 @@
 #pragma mark -
 #pragma mark Actions
 - (IBAction)equationEntered:(id)sender{
-    PR_CMD
+    
+    AppDelegate *delegate = NSApplication.sharedApplication.delegate;
+    Equation *equation = [[Equation alloc] initWithString:[self.textField stringValue]];
+    [delegate.graphTableVC draw:equation];
+
 }
 
 @end

@@ -8,5 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "Equation.h"
+
 @interface GraphTableViewController : NSViewController <NSSplitViewDelegate>
+
+- (void) draw: (Equation *) equation;
+
 @end

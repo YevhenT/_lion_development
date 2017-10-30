@@ -27,6 +27,14 @@
     return self;
 }
 
+- (void) draw: (Equation *) equation{
+    NSLog(@"Draw equation %@", equation);
+    NSLog(@"Value for x = 4, y = %f", [equation evaluateForX: 4.0]);
+}
+
+
+
+
 #pragma mark -
 #pragma mark <NSSplitViewDelegate>
 - (BOOL)splitView:(NSSplitView *)splitView canCollapseSubview:(NSView *)subview{

@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+
+
 @interface EquationEntryViewController : NSViewController
 
 @end
