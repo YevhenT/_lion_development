@@ -26,6 +26,7 @@
 		62794E031FA3A774003E441E /* RecentlyUsedEquationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62794E011FA3A774003E441E /* RecentlyUsedEquationViewController.xib */; };
 		62794E091FA3AC17003E441E /* GroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E081FA3AC17003E441E /* GroupItem.m */; };
 		62794E4F1FA67421003E441E /* EquationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E4E1FA67421003E441E /* EquationItem.m */; };
+		62794E521FA6748F003E441E /* Equation.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E511FA6748F003E441E /* Equation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		62794E081FA3AC17003E441E /* GroupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupItem.m; path = Models/GroupItem.m; sourceTree = "<group>"; };
 		62794E4D1FA67421003E441E /* EquationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EquationItem.h; path = Models/EquationItem.h; sourceTree = "<group>"; };
 		62794E4E1FA67421003E441E /* EquationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EquationItem.m; path = Models/EquationItem.m; sourceTree = "<group>"; };
+		62794E501FA6748F003E441E /* Equation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Equation.h; path = Models/Equation.h; sourceTree = "<group>"; };
+		62794E511FA6748F003E441E /* Equation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Equation.m; path = Models/Equation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +199,8 @@
 		6247B7EF1FA27E8900CCFFCA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				62794E501FA6748F003E441E /* Equation.h */,
+				62794E511FA6748F003E441E /* Equation.m */,
 				62794E4D1FA67421003E441E /* EquationItem.h */,
 				62794E4E1FA67421003E441E /* EquationItem.m */,
 				62794E071FA3AC17003E441E /* GroupItem.h */,
@@ -308,6 +313,7 @@
 				6247B7F31FA27F7700CCFFCA /* EquationEntryViewController.m in Sources */,
 				6247B7CE1FA24A6000CCFFCA /* AppDelegate.m in Sources */,
 				62794E021FA3A774003E441E /* RecentlyUsedEquationViewController.m in Sources */,
+				62794E521FA6748F003E441E /* Equation.m in Sources */,
 				62794E091FA3AC17003E441E /* GroupItem.m in Sources */,
 				62794DFD1FA39BDA003E441E /* GraphTableViewController.m in Sources */,
 				62794E4F1FA67421003E441E /* EquationItem.m in Sources */,
