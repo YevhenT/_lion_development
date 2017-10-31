@@ -10,8 +10,11 @@
 
 #import "Equation.h"
 
-@interface GraphTableViewController : NSViewController <NSSplitViewDelegate>
+@interface GraphTableViewController : NSViewController <NSSplitViewDelegate,
+                                                        NSTableViewDataSource>
 
+@property (nonatomic, strong) NSMutableArray *values;
+@property (nonatomic, weak) IBOutlet NSTableView *graphTableView;
 - (void) draw: (Equation *) equation;
 
 @end

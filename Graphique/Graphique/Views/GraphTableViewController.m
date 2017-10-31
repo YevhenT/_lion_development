@@ -27,9 +27,27 @@
     return self;
 }
 
+- (NSMutableArray*) values{
+    if (_values == nil) {
+        _values = [[NSMutableArray alloc]init];
+    }
+    
+    return _values  ;
+}
+
 - (void) draw: (Equation *) equation{
-    NSLog(@"Draw equation %@", equation);
-    NSLog(@"Value for x = 4, y = %f", [equation evaluateForX: 4.0]);
+//    NSLog(@"Draw equation %@", equation);
+//    NSLog(@"Value for x = 4, y = %f", [equation evaluateForX: 4.0]);
+    //очистить кэш
+    [self.values removeAllObjects];
+    
+    for (float x = -50; x <= 50; x++) {
+        float y = [equation evaluateForX:x];
+        NSLog(@"Adding Point (%0.2f, %0.2f)", x, y);
+        [self.values addObject:[NSValue valueWithPoint:CGPointMake(x, y)]];
+    }
+    [self.graphTableView reloadData];
+    
 }
 
 
@@ -53,5 +71,22 @@ constrainMinCoordinate:(CGFloat)proposedMinimumPosition ofSubviewAt:(NSInteger)d
     CGFloat max = splitView.frame.size.height - GRAPH_MIN_HEIGHT;
     return max;
 }
+
+
+#pragma mark -
+#pragma mark ***** NSTableViewDataSource *****
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
+    return self.values.count;
+}
+
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
+    CGPoint point = [[self.values objectAtIndex:row] pointValue];
+    NSLog(@"%@", tableColumn.identifier);
+    float value = [[tableColumn identifier] isEqualToString:@"X"] ? point.x : point.y;
+    return [NSString stringWithFormat:@"%0.2f", value];
+    
+}
+
 
 @end
