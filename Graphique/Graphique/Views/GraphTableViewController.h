@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) NSMutableArray *values;
 @property (nonatomic, weak) IBOutlet NSTableView *graphTableView;
+@property (nonatomic, assign) CGFloat interval;
+
 - (void) draw: (Equation *) equation;
 
 @end
