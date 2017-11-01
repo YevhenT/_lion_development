@@ -10,11 +10,14 @@
 
 #import "Equation.h"
 
+@class GraphView;
+
 @interface GraphTableViewController : NSViewController <NSSplitViewDelegate,
                                                         NSTableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *values;
 @property (nonatomic, weak) IBOutlet NSTableView *graphTableView;
+@property (nonatomic, weak) IBOutlet GraphView *graphView;
 @property (nonatomic, assign) CGFloat interval;
 
 - (void) draw: (Equation *) equation;

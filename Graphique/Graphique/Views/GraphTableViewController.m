@@ -8,6 +8,8 @@
 
 #import "GraphTableViewController.h"
 
+#import "GraphView.h"
+
 #define PREFERRED_RECENT_AND_EQUATIONS_MIN_HEIGHT 150.0
 #define GRAPH_MIN_HEIGHT 100.0
 
@@ -36,10 +38,11 @@
     
     for (float x = -50; x <= 50; x+=self.interval) {
         float y = [equation evaluateForX:x];
-        NSLog(@"Adding Point (%0.2f, %0.2f)", x, y);
+//        NSLog(@"Adding Point (%0.2f, %0.2f)", x, y);
         [self.values addObject:[NSValue valueWithPoint:CGPointMake(x, y)]];
     }
-    [self.graphTableView reloadData];
+//    [self.graphTableView reloadData];
+    [self.graphView setNeedsDisplay:YES];
     
 }
 

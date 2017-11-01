@@ -7,7 +7,8 @@
         <customObject id="-2" userLabel="File's Owner" customClass="GraphTableViewController">
             <connections>
                 <outlet property="graphTableView" destination="Uq3-ES-aA9" id="imd-rW-mBc"/>
-                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="graphView" destination="gAH-1T-TQ7" id="rcp-IT-Wka"/>
+                <outlet property="view" destination="gAH-1T-TQ7" id="hHB-xn-a1c"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -16,6 +17,13 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="227"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="gAH-1T-TQ7" customClass="GraphView">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="227"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <connections>
+                        <outlet property="controller" destination="-2" id="EhP-ZE-ULO"/>
+                    </connections>
+                </customView>
                 <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dR5-4X-8xP">
                     <rect key="frame" x="18" y="183" width="444" height="26"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -87,13 +95,17 @@
                 </scrollView>
             </subviews>
             <constraints>
+                <constraint firstItem="gAH-1T-TQ7" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="4Ik-r4-SCq"/>
+                <constraint firstAttribute="trailing" secondItem="gAH-1T-TQ7" secondAttribute="trailing" id="AGC-6A-F2r"/>
                 <constraint firstAttribute="trailing" secondItem="9oD-0F-XD9" secondAttribute="trailing" constant="20" id="ARl-xL-PNg"/>
                 <constraint firstItem="9oD-0F-XD9" firstAttribute="top" secondItem="dR5-4X-8xP" secondAttribute="bottom" constant="14" id="Gqp-5A-bDr"/>
                 <constraint firstItem="dR5-4X-8xP" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="18" id="PI0-3Z-Lz9"/>
                 <constraint firstAttribute="trailing" secondItem="dR5-4X-8xP" secondAttribute="trailing" constant="20" id="W0j-fe-5pJ"/>
                 <constraint firstItem="dR5-4X-8xP" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="YFu-7C-X2v"/>
+                <constraint firstAttribute="bottom" secondItem="gAH-1T-TQ7" secondAttribute="bottom" id="bmm-rp-ZdK"/>
                 <constraint firstAttribute="bottom" secondItem="9oD-0F-XD9" secondAttribute="bottom" constant="20" id="fne-Q1-PSv"/>
                 <constraint firstItem="9oD-0F-XD9" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="gHB-Ot-9wN"/>
+                <constraint firstItem="gAH-1T-TQ7" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="wYq-47-17r"/>
             </constraints>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="TTb-Jm-oNd"/>
