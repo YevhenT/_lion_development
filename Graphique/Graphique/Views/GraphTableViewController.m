@@ -41,7 +41,7 @@
 //        NSLog(@"Adding Point (%0.2f, %0.2f)", x, y);
         [self.values addObject:[NSValue valueWithPoint:CGPointMake(x, y)]];
     }
-//    [self.graphTableView reloadData];
+    [self.graphTableView reloadData];
     [self.graphView setNeedsDisplay:YES];
     
 }
