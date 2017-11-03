@@ -7,6 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "EquationToken.h"
+#import "Equation.h"
 
 @interface ExponentTests : XCTestCase
 
@@ -26,9 +28,41 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
+-(void)testExponents {
+    Equation *equation = [[Equation alloc] initWithString:@"32x2+(x+7)45+3^3"];
+    
+    NSArray *tokens = equation.tokens;
+    
+    XCTAssertTrue(tokens.count == 14, @"");
+    EquationToken *token = nil;
+    
+    for (NSUInteger i = 0; i < [tokens count]; i++) {
+        NSLog(@"value_%lu = %@", (unsigned long)i, [tokens[i] value]);
+    }
+    
+    
+    token = [tokens objectAtIndex:0];
+    XCTAssertEqual(EquationTokenTypeNumber, token.type, @"");
+    XCTAssertEqualObjects(@"32", token.value, @"");
+    
+    token = [tokens objectAtIndex:2];
+    XCTAssertEqual(EquationTokenTypeExponent, token.type, @"");
+    XCTAssertEqualObjects(@"2", token.value, @"");
+    
+    token = [tokens objectAtIndex:7];
+    XCTAssertEqual(EquationTokenTypeNumber, token.type, @"");
+    XCTAssertEqualObjects(@"7", token.value, @"");
+    
+    token = [tokens objectAtIndex:9];
+    XCTAssertEqual(EquationTokenTypeExponent, token.type, @"");
+    XCTAssertEqualObjects(@"45", token.value, @"");
+    
+    token = [tokens objectAtIndex:11];
+    XCTAssertEqual(EquationTokenTypeNumber, token.type, @"");
+    XCTAssertEqualObjects(@"3", token.value, @"");
+    
+    token = [tokens objectAtIndex:13];
+    XCTAssertEqual(EquationTokenTypeExponent, token.type, @"");
+    XCTAssertEqualObjects(@"3", token.value, @""); }
 
 @end

@@ -9,5 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface Stack : NSObject
+{
+    @private NSMutableArray *stack;
+}
 
+- (void) push: (id)anObject;
+- (id) pop;
+- (BOOL) hasObjects;
 @end

@@ -28,6 +28,10 @@
 		62794E4F1FA67421003E441E /* EquationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E4E1FA67421003E441E /* EquationItem.m */; };
 		62794E521FA6748F003E441E /* Equation.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E511FA6748F003E441E /* Equation.m */; };
 		62794E5B1FA8ECFC003E441E /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E5A1FA8ECFC003E441E /* GraphView.m */; };
+		62794E5E1FAB2809003E441E /* EquationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E5D1FAB2809003E441E /* EquationToken.m */; };
+		62794E601FAB9183003E441E /* ExponentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E5F1FAB9183003E441E /* ExponentTests.m */; };
+		62794E631FACABC4003E441E /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E621FACABC4003E441E /* Stack.m */; };
+		62794E651FACADE9003E441E /* SteckTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E641FACADE9003E441E /* SteckTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,12 @@
 		62794E511FA6748F003E441E /* Equation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Equation.m; path = Models/Equation.m; sourceTree = "<group>"; };
 		62794E591FA8ECFC003E441E /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphView.h; path = Views/GraphView.h; sourceTree = "<group>"; };
 		62794E5A1FA8ECFC003E441E /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphView.m; path = Views/GraphView.m; sourceTree = "<group>"; };
+		62794E5C1FAB2809003E441E /* EquationToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EquationToken.h; path = Models/EquationToken.h; sourceTree = "<group>"; };
+		62794E5D1FAB2809003E441E /* EquationToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EquationToken.m; path = Models/EquationToken.m; sourceTree = "<group>"; };
+		62794E5F1FAB9183003E441E /* ExponentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExponentTests.m; sourceTree = "<group>"; };
+		62794E611FACABC4003E441E /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stack.h; path = Models/Stack.h; sourceTree = "<group>"; };
+		62794E621FACABC4003E441E /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stack.m; path = Models/Stack.m; sourceTree = "<group>"; };
+		62794E641FACADE9003E441E /* SteckTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SteckTests.m; path = GraphiqueTests/SteckTests.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +178,8 @@
 		6247B7DE1FA24A6000CCFFCA /* GraphiqueTests */ = {
 			isa = PBXGroup;
 			children = (
+				62794E5F1FAB9183003E441E /* ExponentTests.m */,
+				62794E641FACADE9003E441E /* SteckTests.m */,
 				6247B7E41FA24A6000CCFFCA /* GraphiqueTests.m */,
 				6247B7DF1FA24A6000CCFFCA /* Supporting Files */,
 			);
@@ -210,6 +222,10 @@
 				62794E4E1FA67421003E441E /* EquationItem.m */,
 				62794E071FA3AC17003E441E /* GroupItem.h */,
 				62794E081FA3AC17003E441E /* GroupItem.m */,
+				62794E5C1FAB2809003E441E /* EquationToken.h */,
+				62794E5D1FAB2809003E441E /* EquationToken.m */,
+				62794E611FACABC4003E441E /* Stack.h */,
+				62794E621FACABC4003E441E /* Stack.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -320,9 +336,11 @@
 				62794E021FA3A774003E441E /* RecentlyUsedEquationViewController.m in Sources */,
 				62794E5B1FA8ECFC003E441E /* GraphView.m in Sources */,
 				62794E521FA6748F003E441E /* Equation.m in Sources */,
+				62794E5E1FAB2809003E441E /* EquationToken.m in Sources */,
 				62794E091FA3AC17003E441E /* GroupItem.m in Sources */,
 				62794DFD1FA39BDA003E441E /* GraphTableViewController.m in Sources */,
 				62794E4F1FA67421003E441E /* EquationItem.m in Sources */,
+				62794E631FACABC4003E441E /* Stack.m in Sources */,
 				6247B7C71FA24A5F00CCFFCA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,7 +349,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62794E601FAB9183003E441E /* ExponentTests.m in Sources */,
 				6247B7E51FA24A6000CCFFCA /* GraphiqueTests.m in Sources */,
+				62794E651FACADE9003E441E /* SteckTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

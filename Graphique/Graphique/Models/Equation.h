@@ -10,6 +10,8 @@
 
 @interface Equation : NSObject
 
+@property (nonatomic, strong) NSMutableArray *tokens;
+
 - (id) initWithString: (NSString*) string;
 - (CGFloat) evaluateForX: (CGFloat) x;
 - (BOOL)validate: (NSError**)error;

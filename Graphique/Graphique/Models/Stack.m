@@ -10,4 +10,27 @@
 
 @implementation Stack
 
+- (instancetype) init{
+    self = [super init];
+    if (self) {
+        stack = [NSMutableArray array];
+    }
+    
+    return self;
+}
+
+- (void)push:(id)anObject{
+    [stack addObject:anObject];
+}
+
+- (id) pop{
+    id anObject = [stack lastObject];
+    [stack removeLastObject];
+    
+    return anObject;
+}
+
+- (BOOL)hasObjects{
+    return [stack count] > 0;
+}
 @end
