@@ -29,7 +29,7 @@
                 <textField verticalHuggingPriority="750" id="an7-os-EuT">
                     <rect key="frame" x="44" y="105" width="43" height="22"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="2 * x" drawsBackground="YES" id="Ywi-yw-Ovi">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="2 * x" drawsBackground="YES" allowsEditingTextAttributes="YES" id="Ywi-yw-Ovi">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -53,7 +53,7 @@
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="LuI-PI-M1i">
                     <rect key="frame" x="8" y="20" width="159" height="69"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" placeholderString="Enter a function of X" allowsEditingTextAttributes="YES" id="FaS-5g-h6b">
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" placeholderString="Enter a function of X" id="FaS-5g-h6b">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
