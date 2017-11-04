@@ -34,12 +34,7 @@
     NSArray *tokens = equation.tokens;
     
     XCTAssertTrue(tokens.count == 14, @"");
-    EquationToken *token = nil;
-    
-    for (NSUInteger i = 0; i < [tokens count]; i++) {
-        NSLog(@"value_%lu = %@", (unsigned long)i, [tokens[i] value]);
-    }
-    
+    EquationToken *token = nil;    
     
     token = [tokens objectAtIndex:0];
     XCTAssertEqual(EquationTokenTypeNumber, token.type, @"");

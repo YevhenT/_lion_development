@@ -11,6 +11,8 @@
 #import "Equation.h"
 #import "AppDelegate.h"
 #import "GraphTableViewController.h"
+#import "EquationToken.h"
+
 
 @interface EquationEntryViewController ()
 @property (nonatomic, weak) IBOutlet NSTextField *textField;
@@ -18,6 +20,8 @@
 @end
 
 @implementation EquationEntryViewController
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +39,8 @@
 - (void) controlTextDidChange:(NSNotification *)notification{
     Equation *equation = [[Equation alloc] initWithString:[self.textField stringValue]];
     NSError *error = nil;
+    
+    
     if ([equation validate:&error] == NO) {
         self.feedback.stringValue = [NSString stringWithFormat:@"Error %ld : %@", [error code], [error localizedDescription]];
     }

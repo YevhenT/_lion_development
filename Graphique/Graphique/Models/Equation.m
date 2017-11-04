@@ -37,11 +37,11 @@ static NSArray *SYMBOLS;
 
 
 
-- (id) init{
-    self = [self initWithString:@""];
-    
-    return self;
-}
+//- (id) init{
+//    self = [self initWithString:@""];
+//    
+//    return self;
+//}
 
 - (id) initWithString:(NSString *)string{
     self = [super init];
@@ -210,21 +210,24 @@ static NSArray *SYMBOLS;
         token = [self newTokenFromString:temp];
         
         // Determine if this should be an exponent
-        // Check that we have a previous token to follow and that this is a number if (token.type == EquationTokenTypeNumber && !(tokens.count == 0))
+        // Check that we have a previous token to follow and that this is a number
+        if (token.type == EquationTokenTypeNumber && !(self.tokens.count == 0))
         {
             // Get the previous token
             EquationToken *previousToken = [self.tokens lastObject];
             // If the previous token is a variable, close parenthesis, or the ^ operator, this is an exponent
-            if (previousToken.type == EquationTokenTypeVariable || previousToken.type == EquationTokenTypeCloseParen || [previousToken.value isEqualToString:@"^"])
-            {
-                token.type = EquationTokenTypeExponent;
-            }
+                if (previousToken.type == EquationTokenTypeVariable || previousToken.type == EquationTokenTypeCloseParen || [previousToken.value isEqualToString:@"^"])
+                {
+                    token.type = EquationTokenTypeExponent;
+                }
+            
         }
     
         // Do parenthesis matching
         if (token.type == EquationTokenTypeOpenParen) {
 //            ￼ Set the new open and push it onto
-            token.valid = NO; [stack push:token];
+            token.valid = NO;
+            [stack push:token];
             //parenthesis to invalid, as it's not yet matched, the stack
         }
         else if (token.type == EquationTokenTypeCloseParen) {

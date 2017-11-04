@@ -10,11 +10,11 @@
 
 @implementation EquationToken
 
-- (instancetype) init{
-    self = [self initWithType:EquationTokenTypeInvalid andValue:@""];
-    
-    return self;
-}
+//- (instancetype) init{
+//    self = [self initWithType:EquationTokenTypeInvalid andValue:@""];
+//    
+//    return self;
+//}
 
 - (instancetype) initWithType:(EquationTokenType)type andValue:(NSString *)value{
     self = [super init];

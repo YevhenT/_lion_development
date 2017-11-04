@@ -32,6 +32,7 @@
 		62794E601FAB9183003E441E /* ExponentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E5F1FAB9183003E441E /* ExponentTests.m */; };
 		62794E631FACABC4003E441E /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E621FACABC4003E441E /* Stack.m */; };
 		62794E651FACADE9003E441E /* SteckTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E641FACADE9003E441E /* SteckTests.m */; };
+		62794E671FACBE93003E441E /* EquationTokenizeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E661FACBE93003E441E /* EquationTokenizeTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		62794E611FACABC4003E441E /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stack.h; path = Models/Stack.h; sourceTree = "<group>"; };
 		62794E621FACABC4003E441E /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stack.m; path = Models/Stack.m; sourceTree = "<group>"; };
 		62794E641FACADE9003E441E /* SteckTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SteckTests.m; path = GraphiqueTests/SteckTests.m; sourceTree = SOURCE_ROOT; };
+		62794E661FACBE93003E441E /* EquationTokenizeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquationTokenizeTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				62794E5F1FAB9183003E441E /* ExponentTests.m */,
 				62794E641FACADE9003E441E /* SteckTests.m */,
 				6247B7E41FA24A6000CCFFCA /* GraphiqueTests.m */,
+				62794E661FACBE93003E441E /* EquationTokenizeTests.m */,
 				6247B7DF1FA24A6000CCFFCA /* Supporting Files */,
 			);
 			path = GraphiqueTests;
@@ -349,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62794E671FACBE93003E441E /* EquationTokenizeTests.m in Sources */,
 				62794E601FAB9183003E441E /* ExponentTests.m in Sources */,
 				6247B7E51FA24A6000CCFFCA /* GraphiqueTests.m in Sources */,
 				62794E651FACADE9003E441E /* SteckTests.m in Sources */,
