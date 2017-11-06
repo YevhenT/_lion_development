@@ -25,6 +25,7 @@ static NSArray *SYMBOLS;
 - (BOOL) produceError:(NSError**)error withCode:(NSInteger)code andMessage:(NSString*)message;
 - (void) tokenize;
 - (EquationToken*) newTokenFromString:(NSString*)string;
+- (NSString *)expand;
 
 @end
 @implementation Equation
@@ -57,7 +58,7 @@ static NSArray *SYMBOLS;
 
 
 - (NSString*) description {
-    return [NSString stringWithFormat:@"Equation [ %@ ]", self.text];
+    return [NSString stringWithFormat:@"Equation [ %@ ]", self.expand];
 }
 
 - (CGFloat) evaluateForX: (CGFloat) x{
@@ -65,7 +66,7 @@ static NSArray *SYMBOLS;
     [task setLaunchPath: kPathToAWK];
     
     NSArray *arguments = @[
-                           [NSString stringWithFormat:@"BEGIN { x = %f ; print %@ ;}", x, self.text]
+                           [NSString stringWithFormat:@"BEGIN { x = %f ; print %@ ;}", x, [self expand]]
                            ];
     [task setArguments:arguments];
     
@@ -84,12 +85,13 @@ static NSArray *SYMBOLS;
 }
 
 - (BOOL)validate: (NSError**)error{
+    /*
     NSUInteger open = 0;
     NSUInteger close = 0;
     unichar previous = 0;
-    NSString *allowCharacters = @"x()+-*/^0123456789. ";
+    NSString *allowCharacters = @"x()+-*^/0123456789. ";
     NSCharacterSet *cs = [NSCharacterSet characterSetWithCharactersInString:allowCharacters];
-    NSCharacterSet *operators = [NSCharacterSet characterSetWithCharactersInString:@"+-*/^"];
+    NSCharacterSet *operators = [NSCharacterSet characterSetWithCharactersInString:@"+-*^/"];
     
 
     for (int i = 0; i < self.text.length; i++) {
@@ -119,6 +121,27 @@ static NSArray *SYMBOLS;
     else if (open > close) {
         return [self produceError:error withCode:103 andMessage:
                 [NSString stringWithFormat:@"Too many open parentheses."]];
+    }
+     */
+    NSString *allowed = @"x, 0-9, (), operators, trig functions, pi and e";
+    EquationToken *previousToken = nil;
+    
+    for (EquationToken *token in self.tokens) {
+        if (token.valid == NO) {
+            if (token.type == EquationTokenTypeOpenParen) {
+                return [self produceError:error withCode:102 andMessage:@"Too many open parentheses."];
+            }
+            else if (token.type == EquationTokenTypeCloseParen){
+                return [self produceError:error withCode:103 andMessage:@"Too many closed parentheses."];
+            }
+            else {
+                return [self produceError:error withCode:100 andMessage:[NSString stringWithFormat:@"Invalid character type. Only %@ are allosed.", allowed]];
+            }
+            if (token.type == EquationTokenTypeOperator && previousToken.type == EquationTokenTypeOperator ) {
+                return [self produceError:error withCode:101 andMessage:@"Consecutive operators are not allowed."];
+            }
+            previousToken = token;
+        }
     }
     
     return YES;
@@ -289,5 +312,43 @@ static NSArray *SYMBOLS;
         type = EquationTokenTypeInvalid;
     }
     return [[EquationToken alloc] initWithType:type andValue:string];
+}
+
+- (NSString *)expand{
+    NSMutableString *expanded = [NSMutableString string];
+    EquationToken *previousToken = nil;
+    
+    for (EquationToken *token in self.tokens) {
+        // Get the value of the current token
+        NSString *value = token.value;
+        if (previousToken != nil) {
+            // Do implicit exponents
+            if (token.type == EquationTokenTypeExponent && ![previousToken.value isEqualToString:@"^"])
+            {
+                [expanded appendString:@"^"];
+            }
+            // Do implicit multiplication when token is an open parenthesis
+            if (token.type == EquationTokenTypeOpenParen && (previousToken.type == EquationTokenTypeVariable || previousToken.type == EquationTokenTypeNumber))
+            {
+                [expanded appendString:@"*"];
+            }
+            // Do implicit multiplication when token is a variable or symbol
+            if ((token.type == EquationTokenTypeVariable || token.type == EquationTokenTypeSymbol) && previousToken.type == EquationTokenTypeNumber)
+            {
+                [expanded appendString:@"*"];
+            } }
+        // Convert pi
+        if ([value isEqualToString:@"pi"] || [value isEqualToString:@"\u03c0"]) {
+            value = [NSString stringWithFormat:@"%f", M_PI]; }
+        // Convert e
+        if ([value isEqualToString:@"e"]) {
+            value = [NSString stringWithFormat:@"%f", M_E]; }
+        // Append the current token's value, which we may have adjusted
+        [expanded appendString:value];
+        // Keep a pointer to the previous token
+        previousToken = token;
+    }
+    
+    return expanded;
 }
 @end

@@ -47,6 +47,14 @@
 
 }
 
-
++ (void) initialize{
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//    NSDictionary *appDefaults = @{@"key": @"object_or_value"};
+//    [userDefaults registerDefaults:appDefaults];
+//    [NSUserDefaults resetStandardUserDefaults];
+//    [userDefaults removeObjectForKey:@"key"];
+    
+    [NSFontManager sharedFontManager];
+}
 
 @end
