@@ -47,8 +47,6 @@
     
     [[NSColorPanel sharedColorPanel] setTarget:self];
     [[NSColorPanel sharedColorPanel] setAction:@selector(changeGraphLineColor:)];
-    
-
 }
 
 + (void) initialize{
@@ -103,6 +101,24 @@
         self.preferencesController = [[PreferencesController alloc] init];
     }
     [self.preferencesController showWindow:self];
+}
+
+- (IBAction)exportAs:(id)sender{
+    //получить изображение из вью
+    NSBitmapImageRep *imageRep = [self.graphTableVC export];
+    
+    //сформировать изображение PNG
+    NSData *data = [imageRep representationUsingType:NSPNGFileType
+                                          properties:nil];
+    //создать диалоговое окно SaveAs
+    NSSavePanel *saveDlg = [NSSavePanel savePanel];
+    [saveDlg setAllowedFileTypes:@[@"png"]];
+    
+    //открыть диалоговое окно и сохранить по нажатию ОК
+    NSInteger result = [saveDlg runModal];
+    if (result == NSOKButton) {
+        [data writeToURL:saveDlg.URL atomically:YES];
+    }
 }
 
 

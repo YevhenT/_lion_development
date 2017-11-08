@@ -130,6 +130,13 @@
                                     <action selector="print:" target="-1" id="qaZ-4w-aoO"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="o0R-em-fcK"/>
+                            <menuItem title="ExportAs" id="X0K-ib-V3i">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="exportAs:" target="Voe-Tx-rLC" id="8m9-xV-mI1"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

@@ -23,5 +23,5 @@
 
 
 - (void) draw: (Equation *) equation;
-
+- (NSBitmapImageRep*)export;
 @end

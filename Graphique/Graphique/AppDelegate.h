@@ -25,4 +25,5 @@
 @property (nonatomic, strong) PreferencesController *preferencesController;
 
 - (IBAction)showPreferencesPanel:(id)sender;
+- (IBAction)exportAs:(id)sender;
 @end

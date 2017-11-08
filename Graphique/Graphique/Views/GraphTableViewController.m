@@ -53,6 +53,15 @@ static NSString *kInitialViewIsGraph = @"InitialViewIsGraph";
     [self.tabView selectTabViewItemAtIndex:selectedTab];
 }
 
+- (NSBitmapImageRep*)export{
+    NSSize mySize = self.graphView.bounds.size;
+    NSBitmapImageRep *bir = [self.graphView bitmapImageRepForCachingDisplayInRect:self.graphView.bounds];
+    [bir setSize:mySize];
+    [self.graphView cacheDisplayInRect:self.graphView.bounds
+                      toBitmapImageRep:bir];
+    
+    return bir;
+}
 
 
 #pragma mark -
