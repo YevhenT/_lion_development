@@ -11,6 +11,7 @@
 #import "EquationEntryViewController.h"
 #import "GraphTableViewController.h"
 #import "RecentlyUsedEquationViewController.h"
+#import "GraphView.h"
 
 @interface AppDelegate() <NSSplitViewDelegate>
 
@@ -43,18 +44,57 @@
     [self.horizontalSplitView replaceSubview:[self.horizontalSplitView subviews][1]
                                         with:self.graphTableVC.view];
     
+    [[NSColorPanel sharedColorPanel] setTarget:self];
+    [[NSColorPanel sharedColorPanel] setAction:@selector(changeGraphLineColor:)];
     
 
 }
 
 + (void) initialize{
-//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//    NSDictionary *appDefaults = @{@"key": @"object_or_value"};
-//    [userDefaults registerDefaults:appDefaults];
-//    [NSUserDefaults resetStandardUserDefaults];
-//    [userDefaults removeObjectForKey:@"key"];
+
+    [NSColorPanel setPickerMask:NSColorPanelCrayonModeMask];
+
     
-    [NSFontManager sharedFontManager];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    // Set the font to a reasonable choice and convert to an NSData object
+    NSFont *equationFont = [NSFont systemFontOfSize:18.0];
+    NSData *fontData = [NSArchiver archivedDataWithRootObject:equationFont];
+
+    
+    NSColor *lineColor = [NSColor blackColor];
+    NSData *colorData = [NSArchiver archivedDataWithRootObject:lineColor];
+    
+    NSDictionary *appDefaults = @{  @"equationFont" : fontData,
+                                    @"lineColor" : colorData
+                                 };
+    [NSColorPanel sharedColorPanel];
+    [NSFontPanel sharedFontPanel];
+    // Change the action for the Font Panel so that the text field doesn't swallow the changes
+    [[NSFontManager sharedFontManager] setAction:@selector(changeEquationFont:)];
+    
+    [userDefaults registerDefaults:appDefaults];
+}
+
+- (void)changeEquationFont:(NSFontManager*)sender{
+    // Get the user defaults
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    // Get the user's font selection and convert from NSData to NSFont
+    NSData *fontData = [userDefaults dataForKey:@"equationFont"];
+    NSFont *equationFont = (NSFont *)[NSUnarchiver unarchiveObjectWithData:fontData];
+    // Convert the font to the new selection
+    NSFont *newFont = [sender convertFont:equationFont];
+    // Convert the new font into an NSData object and set it back into the user defaults
+    fontData = [NSArchiver archivedDataWithRootObject:newFont];
+    [userDefaults setObject:fontData forKey:@"equationFont"];
+    // Tell the equation entry field to update to the new font
+    [self.equationEntryVC controlTextDidChange:nil];
+}
+
+- (void)changeGraphLineColor:(NSColorPanel*)sender{
+    NSData *colorData = [NSArchiver archivedDataWithRootObject:[sender color]];
+    [[NSUserDefaults standardUserDefaults] setObject:colorData forKey:@"lineColor"];
+    
+    [self.graphTableVC.graphView setNeedsDisplay:YES];
 }
 
 @end

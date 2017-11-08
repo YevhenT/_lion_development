@@ -43,7 +43,9 @@
     NSColor *axisColor = [NSColor colorWithDeviceRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     NSColor *gridColorLight = [NSColor colorWithDeviceRed:1.0 green:1.0 blue:1.0 alpha:0.5];
     NSColor *gridColorLighter = [NSColor colorWithDeviceRed:1.0 green:1.0 blue:1.0 alpha:0.25];
-    NSColor *curveColor = [NSColor colorWithDeviceRed:.0 green:0.0 blue:0 alpha:1.0];
+    NSData *colorData = [[NSUserDefaults standardUserDefaults] dataForKey:@"lineColor"];
+    NSColor *curveColor = [NSUnarchiver unarchiveObjectWithData:colorData];
+   
     [background set];
     NSRectFill(dirtyRect);
  
