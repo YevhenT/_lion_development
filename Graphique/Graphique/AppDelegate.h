@@ -11,6 +11,7 @@
 @class EquationEntryViewController;
 @class GraphTableViewController;
 @class RecentlyUsedEquationViewController;
+@class PreferencesController;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) EquationEntryViewController *equationEntryVC;
 @property (nonatomic, strong) GraphTableViewController *graphTableVC;
 @property (nonatomic, strong) RecentlyUsedEquationViewController *recentlyUsedEquationVC;
+@property (nonatomic, strong) PreferencesController *preferencesController;
 
-
+- (IBAction)showPreferencesPanel:(id)sender;
 @end

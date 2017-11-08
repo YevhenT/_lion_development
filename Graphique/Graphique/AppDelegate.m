@@ -12,6 +12,7 @@
 #import "GraphTableViewController.h"
 #import "RecentlyUsedEquationViewController.h"
 #import "GraphView.h"
+#import "PreferencesController.h"
 
 @interface AppDelegate() <NSSplitViewDelegate>
 
@@ -96,5 +97,13 @@
     
     [self.graphTableVC.graphView setNeedsDisplay:YES];
 }
+
+- (IBAction)showPreferencesPanel:(id)sender{
+    if (self.preferencesController == nil) {
+        self.preferencesController = [[PreferencesController alloc] init];
+    }
+    [self.preferencesController showWindow:self];
+}
+
 
 @end

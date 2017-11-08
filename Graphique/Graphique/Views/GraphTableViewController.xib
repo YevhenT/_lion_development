@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="graphTableView" destination="Uq3-ES-aA9" id="imd-rW-mBc"/>
                 <outlet property="graphView" destination="gAH-1T-TQ7" id="GQP-D8-Td9"/>
+                <outlet property="tabView" destination="OQY-Dq-cnx" id="djB-Yu-L3S"/>
                 <outlet property="view" destination="OQY-Dq-cnx" id="kU2-uu-h8C"/>
             </connections>
         </customObject>

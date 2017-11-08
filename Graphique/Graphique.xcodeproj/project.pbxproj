@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		622DCC191FB2F96B00B22AAA /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622DCC181FB2F96B00B22AAA /* PreferencesController.m */; };
+		622DCC1B1FB2FC9000B22AAA /* PreferencesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 622DCC1A1FB2FC9000B22AAA /* PreferencesController.xib */; };
 		6247B7BB1FA24A5F00CCFFCA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6247B7BA1FA24A5F00CCFFCA /* Cocoa.framework */; };
 		6247B7C51FA24A5F00CCFFCA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6247B7C31FA24A5F00CCFFCA /* InfoPlist.strings */; };
 		6247B7C71FA24A5F00CCFFCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6247B7C61FA24A5F00CCFFCA /* main.m */; };
@@ -46,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		622DCC171FB2F96B00B22AAA /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesController.h; path = Views/PreferencesController.h; sourceTree = "<group>"; };
+		622DCC181FB2F96B00B22AAA /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesController.m; path = Views/PreferencesController.m; sourceTree = "<group>"; };
+		622DCC1A1FB2FC9000B22AAA /* PreferencesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreferencesController.xib; path = Views/PreferencesController.xib; sourceTree = "<group>"; };
 		6247B7B71FA24A5F00CCFFCA /* Graphique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graphique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6247B7BA1FA24A5F00CCFFCA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6247B7BD1FA24A5F00CCFFCA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -212,6 +217,9 @@
 				62794DFF1FA3A774003E441E /* RecentlyUsedEquationViewController.h */,
 				62794E001FA3A774003E441E /* RecentlyUsedEquationViewController.m */,
 				62794E011FA3A774003E441E /* RecentlyUsedEquationViewController.xib */,
+				622DCC171FB2F96B00B22AAA /* PreferencesController.h */,
+				622DCC181FB2F96B00B22AAA /* PreferencesController.m */,
+				622DCC1A1FB2FC9000B22AAA /* PreferencesController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -309,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				622DCC1B1FB2FC9000B22AAA /* PreferencesController.xib in Resources */,
 				62794DFE1FA39BDA003E441E /* GraphTableViewController.xib in Resources */,
 				6247B7C51FA24A5F00CCFFCA /* InfoPlist.strings in Resources */,
 				6247B7D31FA24A6000CCFFCA /* Images.xcassets in Resources */,
@@ -334,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				622DCC191FB2F96B00B22AAA /* PreferencesController.m in Sources */,
 				6247B7F31FA27F7700CCFFCA /* EquationEntryViewController.m in Sources */,
 				6247B7CE1FA24A6000CCFFCA /* AppDelegate.m in Sources */,
 				62794E021FA3A774003E441E /* RecentlyUsedEquationViewController.m in Sources */,

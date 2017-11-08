@@ -13,6 +13,7 @@
 #define PREFERRED_RECENT_AND_EQUATIONS_MIN_HEIGHT 150.0
 #define GRAPH_MIN_HEIGHT 100.0
 
+static NSString *kInitialViewIsGraph = @"InitialViewIsGraph";
 
 @interface GraphTableViewController () 
 
@@ -46,6 +47,11 @@
     
 }
 
+- (void)awakeFromNib{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSInteger selectedTab = [userDefaults boolForKey:kInitialViewIsGraph]? 0 : 1;
+    [self.tabView selectTabViewItemAtIndex:selectedTab];
+}
 
 
 

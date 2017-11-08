@@ -19,6 +19,8 @@
 @property (nonatomic, weak) IBOutlet NSTableView *graphTableView;
 @property (nonatomic, weak) IBOutlet GraphView *graphView;
 @property (nonatomic, assign) CGFloat interval;
+@property (nonatomic, weak) IBOutlet NSTabView *tabView;
+
 
 - (void) draw: (Equation *) equation;
 
