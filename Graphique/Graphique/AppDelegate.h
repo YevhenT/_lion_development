@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <CoreData/CoreData.h>
 
 @class EquationEntryViewController;
 @class GraphTableViewController;
@@ -23,6 +24,10 @@
 @property (nonatomic, strong) GraphTableViewController *graphTableVC;
 @property (nonatomic, strong) RecentlyUsedEquationViewController *recentlyUsedEquationVC;
 @property (nonatomic, strong) PreferencesController *preferencesController;
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectModel  *managedObjectModel;
+@property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 - (IBAction)showPreferencesPanel:(id)sender;
 - (IBAction)exportAs:(id)sender;

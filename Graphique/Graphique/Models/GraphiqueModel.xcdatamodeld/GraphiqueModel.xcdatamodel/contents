@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Equation" syncable="YES">
+        <attribute name="representation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="group" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="equations" inverseEntity="Group" syncable="YES"/>
+    </entity>
+    <entity name="Group" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="equations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Equation" inverseName="group" inverseEntity="Equation" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Equation" positionX="-63" positionY="-16" width="128" height="88"/>
+        <element name="Group" positionX="160" positionY="-1" width="146" height="73"/>
+    </elements>
+</model>
