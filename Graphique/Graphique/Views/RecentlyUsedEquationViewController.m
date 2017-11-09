@@ -10,10 +10,18 @@
 
 #import "EquationItem.h"
 #import "GroupItem.h"
+#import "Equation.h"
+#import "AppDelegate.h"
+#import "EquationEntryViewController.h"
+#import "GraphTableViewController.h"
 
 #define EQUATION_ENTRY_MIN_WIDTH 175.0
 #define PREFERRED_RECENT_EQUATIONS_MIN_WIDTH 150.0
-//#define EQUATION_ENTRY_MAX_WIDTH 240.0
+
+static NSString *kGroup = @"Group";
+static NSString *kEquation = @"Equation";
+static NSString *kName = @"name";
+
 
 @interface RecentlyUsedEquationViewController ()
 
@@ -26,19 +34,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.rootItem = [[GroupItem alloc] init];
-        
-        for (int i = 0; i < 2; i++) {
-            GroupItem *temp = [[GroupItem alloc] init];
-            temp.name = [NSString stringWithFormat:@"GroupItem %i", i + 1];
-            
-            for (int j = 0; j < 5; j++) {
-                EquationItem *item = [[EquationItem alloc] init];
-            
-                [temp addChild:item];
-            }
-            [self.rootItem addChild:temp];
-        }
-    
     }
     return self;
 }
@@ -47,34 +42,45 @@
 #pragma mark <NSOutlineDataSource>
 
 //количество потомков узла
-- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item{
-    
- 
-    
-    NSInteger numberOfChildren = 0;
-    if (!item) {//"корневое" или "узловое" обращение
-        numberOfChildren = [self.rootItem numberOfChildren];
-    }
-    else {
-        numberOfChildren = [item numberOfChildren];
-    }
-    return numberOfChildren;
+- (NSInteger)outlineView:(NSOutlineView *)outlineView
+  numberOfChildrenOfItem:(id)item
+{
+    [self loadChildrenForItem:(item == nil ? self.rootItem : item)];
+    return (item == nil) ? [self.rootItem numberOfChildren] : [item numberOfChildren];
 }
+//- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item{
+//    
+// 
+//    
+//    NSInteger numberOfChildren = 0;
+//    if (!item) {//"корневое" или "узловое" обращение
+//        numberOfChildren = [self.rootItem numberOfChildren];
+//    }
+//    else {
+//        numberOfChildren = [item numberOfChildren];
+//    }
+//    return numberOfChildren;
+//}
 //есть потомки или нет
-- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item{
- 
-
-    BOOL isItemExpandable = false;
-    
-    if (!item) {//"корневое" или "узловое" обращение
-        isItemExpandable = ([self.rootItem numberOfChildren] > 0);
-    }
-    else {
-        isItemExpandable = ([item numberOfChildren] > 0);
-    }
-    
-    return isItemExpandable;
+- (BOOL)outlineView:(NSOutlineView *)outlineView
+   isItemExpandable:(id)item
+{
+    return [self outlineView:outlineView numberOfChildrenOfItem:item] > 0;
 }
+//- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item{
+// 
+//
+//    BOOL isItemExpandable = false;
+//    
+//    if (!item) {//"корневое" или "узловое" обращение
+//        isItemExpandable = ([self.rootItem numberOfChildren] > 0);
+//    }
+//    else {
+//        isItemExpandable = ([item numberOfChildren] > 0);
+//    }
+//    
+//    return isItemExpandable;
+//}
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item{
  
 
@@ -102,6 +108,32 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
     
     return objectValue;
 }
+
+#pragma mark
+#pragma mark <NSOutlineDelegate>
+
+
+- (void)outlineViewSelectionDidChange:(NSNotification *)notification {
+    NSOutlineView *outlineView_ = [notification object];
+    NSInteger row = [outlineView_ selectedRow];
+    id item = [outlineView_ itemAtRow:row];
+    // If an equation was selected, deal with it
+    if([item isKindOfClass:EquationItem.class]) {
+        EquationItem *equationItem = item;
+        Equation *equation = [[Equation alloc] initWithString:equationItem.text];
+        AppDelegate *delegate = [NSApplication sharedApplication].delegate;
+        [delegate.equationEntryVC.textField setStringValue: equation.text];
+        [delegate.graphTableVC draw:equation];
+        [delegate.equationEntryVC controlTextDidChange: nil];
+    }
+}
+- (BOOL)    outlineView:(NSOutlineView *)outlineView
+  shouldEditTableColumn:(NSTableColumn *)tableColumn
+                   item:(id)item
+{
+    return NO;
+}
+
 
 #pragma mark -
 #pragma mark <NSSplitViewDelegate>
@@ -142,4 +174,104 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 
     return NO;
 }
+
+#pragma mark
+#pragma mark CoreData
+
+- (void)remember:(Equation *)equation{
+    NSDate *today = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"EEEE MMMM d, YYYY"];
+    NSString *groupName = [dateFormat stringFromDate:today];
+    
+    //создать запрос на выборку
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    //определить тип искомой сущности
+    NSEntityDescription *entity = [NSEntityDescription entityForName:kGroup inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    //добавить предикат для уточнения поиска
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name=%@", groupName];
+    [fetchRequest setPredicate:predicate];
+    
+    NSArray *groups = [self.managedObjectContext executeFetchRequest:fetchRequest
+                                                               error:nil];
+    NSManagedObject *groupMO = nil;
+    
+    if (groups.count > 0) {
+        //группа сегодня уже была создана, пользуемся еЮ
+        groupMO = groups[0];
+    }
+    else {
+        //создать новую группу
+        groupMO = [NSEntityDescription insertNewObjectForEntityForName:kGroup
+                                                inManagedObjectContext:self.managedObjectContext];
+        //задать имя группы
+        [groupMO setValue:groupName forKeyPath:kName];
+    }
+    
+    //создаем объект формулы
+    NSManagedObject *equationMO =
+    [NSEntityDescription insertNewObjectForEntityForName:kEquation
+                                  inManagedObjectContext:self.managedObjectContext];
+    //установить атрибуты метки времения и представления
+    [equationMO setValue:equation.text forKey:@"representation"];
+    [equationMO setValue:[NSDate date] forKey:@"timeStamp"];
+    [equationMO setValue:groupMO forKey:@"group"];
+    
+    //фиксация изменений в постоянном хранилище
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+        abort() ;
+    }
+    
+    [self.rootItem reset];
+    [self.outlineView reloadData];
+    
+}
+
+- (void)loadChildrenForItem:(id)item{
+    // If the item isn't a group, there's nothing to load
+    if(![item isKindOfClass:GroupItem.class])
+        return;
+    GroupItem *group = (GroupItem*)item;
+    // No point reloading if it's already been loaded
+    if(group.loaded) return;
+    // Wipe out the nodes children since we're about to reload them
+    [group reset];
+    // If the group is the rootItem, then we need to load all the available groups. If not, then we only load the
+    // equations for that group based on its name
+    if(group == self.rootItem) {
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Group"
+                                                  inManagedObjectContext:self.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        NSArray *groups = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+        for(NSManagedObject *obj in groups) {
+            GroupItem *groupItem = [[GroupItem alloc] init];
+            groupItem.name = [obj valueForKey:@"name"];
+            [group addChild:groupItem]; }
+    }
+    else
+    {
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Equation"
+                                                  inManagedObjectContext:self.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        // Add a predicate to further specify what we are looking for
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"group.name=%@", group.name];
+        [fetchRequest setPredicate:predicate];
+        NSArray *equations = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+        for(NSManagedObject *obj in equations) {
+            EquationItem *equationItem = [[EquationItem alloc] init];
+            equationItem.text = [obj valueForKey:@"representation"];
+            [group addChild:equationItem];
+        }
+    }
+    // Mark the group as properly loaded
+    group.loaded = YES;
+}
+
+
+
 @end

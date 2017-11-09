@@ -10,6 +10,7 @@
 
 @interface Equation : NSObject
 
+@property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSMutableArray *tokens;
 
 - (id) initWithString: (NSString*) string;

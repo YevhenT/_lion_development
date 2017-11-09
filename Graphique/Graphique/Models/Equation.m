@@ -20,7 +20,6 @@ static NSArray *SYMBOLS;
 
 @interface Equation ()
 
-@property (nonatomic, strong) NSString *text;
 
 - (BOOL) produceError:(NSError**)error withCode:(NSInteger)code andMessage:(NSString*)message;
 - (void) tokenize;

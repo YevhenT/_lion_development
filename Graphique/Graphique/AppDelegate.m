@@ -34,6 +34,7 @@
     self.recentlyUsedEquationVC = [[RecentlyUsedEquationViewController alloc]
                                    initWithNibName: @"RecentlyUsedEquationViewController"
                                    bundle: nil];
+    self.recentlyUsedEquationVC.managedObjectContext = self.managedObjectContext;
     
     self.verticalSplitView.delegate = self.recentlyUsedEquationVC;
     self.horizontalSplitView.delegate = self.graphTableVC;
@@ -120,6 +121,61 @@
         [data writeToURL:saveDlg.URL atomically:YES];
     }
 }
+
+#pragma mark
+#pragma mark CoreData
+
+- (NSManagedObjectModel*)managedObjectModel{
+    if (_managedObjectModel != nil) {
+        return _managedObjectModel;
+    }
+    _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    return _managedObjectModel;
+}
+
+- (NSPersistentStoreCoordinator*) persistentStoreCoordinator{
+    if (_persistentStoreCoordinator) {
+        return _persistentStoreCoordinator;
+    }
+    NSString *dir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSURL *storeURL = [NSURL fileURLWithPath:[dir stringByAppendingPathComponent:@"graphique.sqlite"]];
+    NSError *error = nil;
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                   configuration:nil
+                                                             URL:storeURL
+                                                         options:nil
+                                                           error:&error]) {
+        NSLog(@"Unresolded error %@, %@", error, error.userInfo);
+        abort() ;
+    }
+    return _persistentStoreCoordinator;
+}
+
+- (NSManagedObjectContext*)managedObjectContext{
+    if (_managedObjectContext) {
+        return _managedObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = self.persistentStoreCoordinator;
+    if (coordinator) {
+        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    }
+    return _managedObjectContext;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @end

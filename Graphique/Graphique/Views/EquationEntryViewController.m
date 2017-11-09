@@ -11,12 +11,13 @@
 #import "Equation.h"
 #import "AppDelegate.h"
 #import "GraphTableViewController.h"
+#import "RecentlyUsedEquationViewController.h"
 #import "EquationToken.h"
 
 static NSDictionary *COLORS;
 
 @interface EquationEntryViewController ()
-@property (nonatomic, weak) IBOutlet NSTextField *textField;
+
 @property (nonatomic, weak) IBOutlet NSTextField *feedback;
 @end
 
@@ -143,6 +144,7 @@ static NSDictionary *COLORS;
     Equation *equation = [[Equation alloc] initWithString:[self.textField stringValue]];
     
     NSError *error = nil;
+    
     if ([equation validate:&error] == NO) {
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"OK"];
@@ -155,6 +157,7 @@ static NSDictionary *COLORS;
                             contextInfo:nil];
     }
     else {
+        [delegate.recentlyUsedEquationVC remember:equation];
         [delegate.graphTableVC draw:equation];
     }
     

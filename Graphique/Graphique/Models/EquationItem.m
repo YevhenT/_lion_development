@@ -10,9 +10,7 @@
 
 @implementation EquationItem
 
-- (NSString*) text{
-    return @"2 * x + 4";
-}
+
 
 - (NSInteger) numberOfChildren{
     return 0;
