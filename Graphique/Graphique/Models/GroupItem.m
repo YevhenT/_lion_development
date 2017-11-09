@@ -14,6 +14,7 @@
     self = [super init];
     if (self) {
         self.children = [[NSMutableArray alloc] init];
+        self.loaded = NO;
     }
     
     return self;
@@ -33,5 +34,10 @@
 
 - (NSString*) text {
     return self.name;
+}
+
+- (void)reset{
+    [self.children removeAllObjects];
+    self.loaded = NO;
 }
 @end

@@ -34,6 +34,7 @@
     self.recentlyUsedEquationVC = [[RecentlyUsedEquationViewController alloc]
                                    initWithNibName: @"RecentlyUsedEquationViewController"
                                    bundle: nil];
+    self.recentlyUsedEquationVC.managedObjectContext = self.managedObjectContext;
     
     self.verticalSplitView.delegate = self.recentlyUsedEquationVC;
     self.horizontalSplitView.delegate = self.graphTableVC;

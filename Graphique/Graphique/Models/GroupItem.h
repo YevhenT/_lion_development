@@ -16,10 +16,12 @@
 }
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSMutableArray *children;
+@property (nonatomic, assign) BOOL loaded;
 
 - (NSInteger) numberOfChildren;
 - (id) childAtIndex: (NSUInteger) n;
 - (NSString*) text;
 
 - (void) addChild: (id)childNode;
+- (void)reset;
 @end

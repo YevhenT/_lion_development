@@ -12,4 +12,6 @@
 
 @interface EquationEntryViewController : NSViewController
 
+@property (nonatomic, weak) IBOutlet NSTextField *textField;
+
 @end

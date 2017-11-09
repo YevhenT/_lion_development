@@ -10,5 +10,6 @@
 
 @interface EquationItem : NSObject
 
-- (NSString*) text;
+@property (nonatomic, strong) NSString *text;
+
 @end

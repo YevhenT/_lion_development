@@ -7,11 +7,19 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <CoreData/CoreData.h>
 
 @class GroupItem;
+@class Equation;
 
-@interface RecentlyUsedEquationViewController : NSViewController <NSOutlineViewDataSource, NSSplitViewDelegate>
+@interface RecentlyUsedEquationViewController : NSViewController <NSOutlineViewDataSource,
+                                                                    NSSplitViewDelegate,
+                                                                    NSOutlineViewDelegate>
 
 @property (nonatomic, strong) GroupItem *rootItem;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) IBOutlet NSOutlineView *outlineView;
 
+- (void)remember:(Equation*)equation;
+- (void)loadChildrenForItem:(id)item;
 @end
