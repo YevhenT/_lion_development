@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		622DCC191FB2F96B00B22AAA /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622DCC181FB2F96B00B22AAA /* PreferencesController.m */; };
+		622DCC1B1FB2FC9000B22AAA /* PreferencesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 622DCC1A1FB2FC9000B22AAA /* PreferencesController.xib */; };
 		6247B7BB1FA24A5F00CCFFCA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6247B7BA1FA24A5F00CCFFCA /* Cocoa.framework */; };
 		6247B7C51FA24A5F00CCFFCA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6247B7C31FA24A5F00CCFFCA /* InfoPlist.strings */; };
 		6247B7C71FA24A5F00CCFFCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6247B7C61FA24A5F00CCFFCA /* main.m */; };
@@ -18,6 +20,21 @@
 		6247B7DB1FA24A6000CCFFCA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6247B7BA1FA24A5F00CCFFCA /* Cocoa.framework */; };
 		6247B7E31FA24A6000CCFFCA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6247B7E11FA24A6000CCFFCA /* InfoPlist.strings */; };
 		6247B7E51FA24A6000CCFFCA /* GraphiqueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6247B7E41FA24A6000CCFFCA /* GraphiqueTests.m */; };
+		6247B7F31FA27F7700CCFFCA /* EquationEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6247B7F11FA27F7700CCFFCA /* EquationEntryViewController.m */; };
+		6247B7F41FA27F7700CCFFCA /* EquationEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6247B7F21FA27F7700CCFFCA /* EquationEntryViewController.xib */; };
+		62794DFD1FA39BDA003E441E /* GraphTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794DFB1FA39BDA003E441E /* GraphTableViewController.m */; };
+		62794DFE1FA39BDA003E441E /* GraphTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62794DFC1FA39BDA003E441E /* GraphTableViewController.xib */; };
+		62794E021FA3A774003E441E /* RecentlyUsedEquationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E001FA3A774003E441E /* RecentlyUsedEquationViewController.m */; };
+		62794E031FA3A774003E441E /* RecentlyUsedEquationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62794E011FA3A774003E441E /* RecentlyUsedEquationViewController.xib */; };
+		62794E091FA3AC17003E441E /* GroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E081FA3AC17003E441E /* GroupItem.m */; };
+		62794E4F1FA67421003E441E /* EquationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E4E1FA67421003E441E /* EquationItem.m */; };
+		62794E521FA6748F003E441E /* Equation.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E511FA6748F003E441E /* Equation.m */; };
+		62794E5B1FA8ECFC003E441E /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E5A1FA8ECFC003E441E /* GraphView.m */; };
+		62794E5E1FAB2809003E441E /* EquationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E5D1FAB2809003E441E /* EquationToken.m */; };
+		62794E601FAB9183003E441E /* ExponentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E5F1FAB9183003E441E /* ExponentTests.m */; };
+		62794E631FACABC4003E441E /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E621FACABC4003E441E /* Stack.m */; };
+		62794E651FACADE9003E441E /* SteckTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E641FACADE9003E441E /* SteckTests.m */; };
+		62794E671FACBE93003E441E /* EquationTokenizeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62794E661FACBE93003E441E /* EquationTokenizeTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		622DCC171FB2F96B00B22AAA /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesController.h; path = Views/PreferencesController.h; sourceTree = "<group>"; };
+		622DCC181FB2F96B00B22AAA /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesController.m; path = Views/PreferencesController.m; sourceTree = "<group>"; };
+		622DCC1A1FB2FC9000B22AAA /* PreferencesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreferencesController.xib; path = Views/PreferencesController.xib; sourceTree = "<group>"; };
 		6247B7B71FA24A5F00CCFFCA /* Graphique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graphique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6247B7BA1FA24A5F00CCFFCA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6247B7BD1FA24A5F00CCFFCA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -50,6 +70,30 @@
 		6247B7E01FA24A6000CCFFCA /* GraphiqueTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GraphiqueTests-Info.plist"; sourceTree = "<group>"; };
 		6247B7E21FA24A6000CCFFCA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6247B7E41FA24A6000CCFFCA /* GraphiqueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphiqueTests.m; sourceTree = "<group>"; };
+		6247B7F01FA27F7700CCFFCA /* EquationEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EquationEntryViewController.h; path = Views/EquationEntryViewController.h; sourceTree = "<group>"; };
+		6247B7F11FA27F7700CCFFCA /* EquationEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EquationEntryViewController.m; path = Views/EquationEntryViewController.m; sourceTree = "<group>"; };
+		6247B7F21FA27F7700CCFFCA /* EquationEntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EquationEntryViewController.xib; path = Views/EquationEntryViewController.xib; sourceTree = "<group>"; };
+		62794DFA1FA39BDA003E441E /* GraphTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphTableViewController.h; path = Views/GraphTableViewController.h; sourceTree = "<group>"; };
+		62794DFB1FA39BDA003E441E /* GraphTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphTableViewController.m; path = Views/GraphTableViewController.m; sourceTree = "<group>"; };
+		62794DFC1FA39BDA003E441E /* GraphTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphTableViewController.xib; path = Views/GraphTableViewController.xib; sourceTree = "<group>"; };
+		62794DFF1FA3A774003E441E /* RecentlyUsedEquationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecentlyUsedEquationViewController.h; path = Views/RecentlyUsedEquationViewController.h; sourceTree = "<group>"; };
+		62794E001FA3A774003E441E /* RecentlyUsedEquationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecentlyUsedEquationViewController.m; path = Views/RecentlyUsedEquationViewController.m; sourceTree = "<group>"; };
+		62794E011FA3A774003E441E /* RecentlyUsedEquationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecentlyUsedEquationViewController.xib; path = Views/RecentlyUsedEquationViewController.xib; sourceTree = "<group>"; };
+		62794E071FA3AC17003E441E /* GroupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupItem.h; path = Models/GroupItem.h; sourceTree = "<group>"; };
+		62794E081FA3AC17003E441E /* GroupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupItem.m; path = Models/GroupItem.m; sourceTree = "<group>"; };
+		62794E4D1FA67421003E441E /* EquationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EquationItem.h; path = Models/EquationItem.h; sourceTree = "<group>"; };
+		62794E4E1FA67421003E441E /* EquationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EquationItem.m; path = Models/EquationItem.m; sourceTree = "<group>"; };
+		62794E501FA6748F003E441E /* Equation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Equation.h; path = Models/Equation.h; sourceTree = "<group>"; };
+		62794E511FA6748F003E441E /* Equation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Equation.m; path = Models/Equation.m; sourceTree = "<group>"; };
+		62794E591FA8ECFC003E441E /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphView.h; path = Views/GraphView.h; sourceTree = "<group>"; };
+		62794E5A1FA8ECFC003E441E /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphView.m; path = Views/GraphView.m; sourceTree = "<group>"; };
+		62794E5C1FAB2809003E441E /* EquationToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EquationToken.h; path = Models/EquationToken.h; sourceTree = "<group>"; };
+		62794E5D1FAB2809003E441E /* EquationToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EquationToken.m; path = Models/EquationToken.m; sourceTree = "<group>"; };
+		62794E5F1FAB9183003E441E /* ExponentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExponentTests.m; sourceTree = "<group>"; };
+		62794E611FACABC4003E441E /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stack.h; path = Models/Stack.h; sourceTree = "<group>"; };
+		62794E621FACABC4003E441E /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stack.m; path = Models/Stack.m; sourceTree = "<group>"; };
+		62794E641FACADE9003E441E /* SteckTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SteckTests.m; path = GraphiqueTests/SteckTests.m; sourceTree = SOURCE_ROOT; };
+		62794E661FACBE93003E441E /* EquationTokenizeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquationTokenizeTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +159,8 @@
 		6247B7C01FA24A5F00CCFFCA /* Graphique */ = {
 			isa = PBXGroup;
 			children = (
+				6247B7EF1FA27E8900CCFFCA /* Models */,
+				6247B7EE1FA27E7A00CCFFCA /* Views */,
 				6247B7CC1FA24A6000CCFFCA /* AppDelegate.h */,
 				6247B7CD1FA24A6000CCFFCA /* AppDelegate.m */,
 				6247B7CF1FA24A6000CCFFCA /* MainMenu.xib */,
@@ -139,7 +185,10 @@
 		6247B7DE1FA24A6000CCFFCA /* GraphiqueTests */ = {
 			isa = PBXGroup;
 			children = (
+				62794E5F1FAB9183003E441E /* ExponentTests.m */,
+				62794E641FACADE9003E441E /* SteckTests.m */,
 				6247B7E41FA24A6000CCFFCA /* GraphiqueTests.m */,
+				62794E661FACBE93003E441E /* EquationTokenizeTests.m */,
 				6247B7DF1FA24A6000CCFFCA /* Supporting Files */,
 			);
 			path = GraphiqueTests;
@@ -152,6 +201,44 @@
 				6247B7E11FA24A6000CCFFCA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6247B7EE1FA27E7A00CCFFCA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62794E591FA8ECFC003E441E /* GraphView.h */,
+				62794E5A1FA8ECFC003E441E /* GraphView.m */,
+				6247B7F01FA27F7700CCFFCA /* EquationEntryViewController.h */,
+				6247B7F11FA27F7700CCFFCA /* EquationEntryViewController.m */,
+				6247B7F21FA27F7700CCFFCA /* EquationEntryViewController.xib */,
+				62794DFA1FA39BDA003E441E /* GraphTableViewController.h */,
+				62794DFB1FA39BDA003E441E /* GraphTableViewController.m */,
+				62794DFC1FA39BDA003E441E /* GraphTableViewController.xib */,
+				62794DFF1FA3A774003E441E /* RecentlyUsedEquationViewController.h */,
+				62794E001FA3A774003E441E /* RecentlyUsedEquationViewController.m */,
+				62794E011FA3A774003E441E /* RecentlyUsedEquationViewController.xib */,
+				622DCC171FB2F96B00B22AAA /* PreferencesController.h */,
+				622DCC181FB2F96B00B22AAA /* PreferencesController.m */,
+				622DCC1A1FB2FC9000B22AAA /* PreferencesController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		6247B7EF1FA27E8900CCFFCA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				62794E501FA6748F003E441E /* Equation.h */,
+				62794E511FA6748F003E441E /* Equation.m */,
+				62794E4D1FA67421003E441E /* EquationItem.h */,
+				62794E4E1FA67421003E441E /* EquationItem.m */,
+				62794E071FA3AC17003E441E /* GroupItem.h */,
+				62794E081FA3AC17003E441E /* GroupItem.m */,
+				62794E5C1FAB2809003E441E /* EquationToken.h */,
+				62794E5D1FAB2809003E441E /* EquationToken.m */,
+				62794E611FACABC4003E441E /* Stack.h */,
+				62794E621FACABC4003E441E /* Stack.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,10 +317,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				622DCC1B1FB2FC9000B22AAA /* PreferencesController.xib in Resources */,
+				62794DFE1FA39BDA003E441E /* GraphTableViewController.xib in Resources */,
 				6247B7C51FA24A5F00CCFFCA /* InfoPlist.strings in Resources */,
 				6247B7D31FA24A6000CCFFCA /* Images.xcassets in Resources */,
 				6247B7CB1FA24A6000CCFFCA /* Credits.rtf in Resources */,
 				6247B7D11FA24A6000CCFFCA /* MainMenu.xib in Resources */,
+				62794E031FA3A774003E441E /* RecentlyUsedEquationViewController.xib in Resources */,
+				6247B7F41FA27F7700CCFFCA /* EquationEntryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +343,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				622DCC191FB2F96B00B22AAA /* PreferencesController.m in Sources */,
+				6247B7F31FA27F7700CCFFCA /* EquationEntryViewController.m in Sources */,
 				6247B7CE1FA24A6000CCFFCA /* AppDelegate.m in Sources */,
+				62794E021FA3A774003E441E /* RecentlyUsedEquationViewController.m in Sources */,
+				62794E5B1FA8ECFC003E441E /* GraphView.m in Sources */,
+				62794E521FA6748F003E441E /* Equation.m in Sources */,
+				62794E5E1FAB2809003E441E /* EquationToken.m in Sources */,
+				62794E091FA3AC17003E441E /* GroupItem.m in Sources */,
+				62794DFD1FA39BDA003E441E /* GraphTableViewController.m in Sources */,
+				62794E4F1FA67421003E441E /* EquationItem.m in Sources */,
+				62794E631FACABC4003E441E /* Stack.m in Sources */,
 				6247B7C71FA24A5F00CCFFCA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,7 +362,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62794E671FACBE93003E441E /* EquationTokenizeTests.m in Sources */,
+				62794E601FAB9183003E441E /* ExponentTests.m in Sources */,
 				6247B7E51FA24A6000CCFFCA /* GraphiqueTests.m in Sources */,
+				62794E651FACADE9003E441E /* SteckTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +570,7 @@
 				6247B7EA1FA24A6000CCFFCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6247B7EB1FA24A6000CCFFCA /* Build configuration list for PBXNativeTarget "GraphiqueTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +579,7 @@
 				6247B7ED1FA24A6000CCFFCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

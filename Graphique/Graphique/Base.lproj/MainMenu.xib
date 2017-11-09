@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5023"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -13,6 +13,8 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="horizontalSplitView" destination="iMn-cL-W1a" id="oLn-Es-adh"/>
+                <outlet property="verticalSplitView" destination="NYU-tT-g4D" id="g0v-KN-qY5"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -30,7 +32,11 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                <connections>
+                                    <action selector="showPreferencesPanel:" target="Voe-Tx-rLC" id="4e5-QV-yTI"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                             <menuItem title="Services" id="NMo-om-nkz">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -122,6 +128,13 @@
                             <menuItem title="Print…" keyEquivalent="p" id="aTl-1u-JFS">
                                 <connections>
                                     <action selector="print:" target="-1" id="qaZ-4w-aoO"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="o0R-em-fcK"/>
+                            <menuItem title="ExportAs" id="X0K-ib-V3i">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="exportAs:" target="Voe-Tx-rLC" id="8m9-xV-mI1"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -666,15 +679,71 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Graphique" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="Graphique" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="contentRect" x="335" y="390" width="455" height="360"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+            <value key="minSize" type="size" width="178" height="360"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="455" height="360"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <splitView dividerStyle="thin" id="iMn-cL-W1a" userLabel="horizontalSlider">
+                        <rect key="frame" x="0.0" y="0.0" width="455" height="360"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <customView id="lyI-iy-AiX" userLabel="Equastion">
+                                <rect key="frame" x="0.0" y="0.0" width="455" height="175"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <splitView dividerStyle="thin" vertical="YES" id="NYU-tT-g4D" userLabel="verticalSlider">
+                                        <rect key="frame" x="0.0" y="0.0" width="455" height="175"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <customView id="vpb-Mx-u0W" userLabel="RecentlyUsedEquation">
+                                                <rect key="frame" x="0.0" y="0.0" width="229" height="175"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </customView>
+                                            <customView id="PUq-kU-TxM" userLabel="EquationEntry">
+                                                <rect key="frame" x="230" y="0.0" width="225" height="175"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </customView>
+                                        </subviews>
+                                        <holdingPriorities>
+                                            <real value="250"/>
+                                            <real value="250"/>
+                                        </holdingPriorities>
+                                    </splitView>
+                                </subviews>
+                            </customView>
+                            <customView id="FdY-Oy-YOa" userLabel="GraphTableView">
+                                <rect key="frame" x="0.0" y="176" width="455" height="184"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </customView>
+                        </subviews>
+                        <holdingPriorities>
+                            <real value="250"/>
+                            <real value="250"/>
+                        </holdingPriorities>
+                    </splitView>
+                </subviews>
             </view>
+            <toolbar key="toolbar" implicitIdentifier="BA51A78F-E075-4A34-999F-C6D68A4BC0DF" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="JSF-U5-wU0">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="J7a-jv-FqY"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="8GS-FH-6rm"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="SyB-X0-lBj"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="BuE-cg-rCB"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="bXn-Lg-qKp"/>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="J7a-jv-FqY"/>
+                    <toolbarItem reference="8GS-FH-6rm"/>
+                    <toolbarItem reference="SyB-X0-lBj"/>
+                </defaultToolbarItems>
+            </toolbar>
         </window>
     </objects>
 </document>
