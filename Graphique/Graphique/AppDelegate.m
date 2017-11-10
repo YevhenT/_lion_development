@@ -14,6 +14,8 @@
 #import "GraphView.h"
 #import "PreferencesController.h"
 
+static NSString *const kFileExtension = @"graphique";
+static NSString *const kEquation = @"equation";
 @interface AppDelegate() <NSSplitViewDelegate>
 
 
@@ -163,6 +165,42 @@
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
     return _managedObjectContext;
+}
+
+#pragma mark
+#pragma mark Save As
+- (void)saveDocumentAs: (id)sender{
+    NSString *text = self.equationEntryVC.textField.stringValue;
+    
+    NSSavePanel *saveDlg = [NSSavePanel savePanel];
+    [saveDlg setAllowedFileTypes:@[kFileExtension]];
+    
+    NSInteger result = [saveDlg runModal];
+    if (result == NSOKButton) {
+        NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+        [data setObject:text forKey:kEquation];
+        [data writeToURL:saveDlg.URL atomically:YES];
+    }
+}
+
+- (void)openDocument:(id)sender{
+    NSOpenPanel *openDlg = [NSOpenPanel openPanel];
+    [openDlg setAllowedFileTypes:@[kFileExtension]];
+    NSInteger result = [openDlg runModal];
+    if (result == NSOKButton) {
+        NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfURL:openDlg.URL];
+        [self loadData:data];
+    }
+}
+
+- (void)loadData:(NSDictionary*) data{
+    NSString *equationText = [data objectForKey:kEquation];
+    Equation *equation = [[Equation alloc] initWithString:equationText];
+    
+    [self.equationEntryVC.textField setStringValue:equation.text];
+    [self.graphTableVC draw:equation];
+    
+    [self.equationEntryVC controlTextDidChange:nil];
 }
 
 
