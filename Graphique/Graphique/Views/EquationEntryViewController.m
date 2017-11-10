@@ -139,10 +139,11 @@ static NSDictionary *COLORS;
 #pragma mark -
 #pragma mark Actions
 - (IBAction)equationEntered:(id)sender{
+    if (self.textField.stringValue.length > 0 ) { return; }
     
     AppDelegate *delegate = NSApplication.sharedApplication.delegate;
     Equation *equation = [[Equation alloc] initWithString:[self.textField stringValue]];
-    
+
     NSError *error = nil;
     
     if ([equation validate:&error] == NO) {
