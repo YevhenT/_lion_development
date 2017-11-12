@@ -16,9 +16,10 @@
 
 static NSString *const kFileExtension = @"graphique";
 static NSString *const kEquation = @"equation";
+
 @interface AppDelegate() <NSSplitViewDelegate>
 
-
+@property (nonatomic, strong) NSString *fileName;
 
 
 @end
@@ -50,6 +51,11 @@ static NSString *const kEquation = @"equation";
     
     [[NSColorPanel sharedColorPanel] setTarget:self];
     [[NSColorPanel sharedColorPanel] setAction:@selector(changeGraphLineColor:)];
+    
+    if (self.fileName) {
+        NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:self.fileName];
+        [self loadData:data];
+    }
 }
 
 + (void) initialize{
@@ -203,7 +209,14 @@ static NSString *const kEquation = @"equation";
     [self.equationEntryVC controlTextDidChange:nil];
 }
 
-
+- (BOOL) application:(NSApplication *)application openFile:(NSString *)filename{
+    _fileName = filename;
+    if ([application isRunning]) {
+        NSMutableDictionary *data = [[NSMutableDictionary alloc]initWithContentsOfFile:filename];
+        [self loadData:data];
+    }
+    return YES;
+}
 
 
 
